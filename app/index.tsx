@@ -1,24 +1,24 @@
 import {type FunctionComponent} from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {Text, Image, ScrollView} from 'react-native'
 import {StatusBar} from 'expo-status-bar'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
+import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context'
 
 const Index: FunctionComponent = () => {
+  const logo = require("../assets/images/Eurovision2026Logo.jpg")
+
   return (
-    <>
-      <View style={styles.container}>
-        <Text>Open up /app/index.tsx to start working on your app!</Text>
-        <StatusBar style="auto" />
-      </View>
-    </>
+    <SafeAreaProvider>
+      <SafeAreaView>
+        <ScrollView>
+          <Text>Days before the grand final: 100 days to 16 may 2026.</Text>
+          <Text>Also watch the semi-finals on 12 and 14 may 2026!</Text>
+          <Text>Days before junior eurovision 2026: 10 days</Text>
+          <Text>Welcome to the Eurovision Ranking App!</Text>
+          <Image source={logo} />
+          <StatusBar style="auto" />
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   )
 }
 
