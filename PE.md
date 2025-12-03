@@ -54,5 +54,11 @@ _De long press die gebruikt wordt om de details pagina te openen vanuit de deeln
 verwerkt wordt. Als animatie wordt een refresh op de ranking pagina voorzien._
 
 # Feedback
+Ziet er over het algemeen goed uit! 
 
-**Wordt verder aangevuld door jouw docent.**
+Enkele kleine feedback puntjes:
+- Het design mag zeker nog een kleine upgrade krijgen, maar het is duidelijk uit je omschrijving dat je dit van plan bent.
+- Een long press om een detailpagina te openen is niet ideaal. Acties die je normaal met 1 klik doet zet je best niet in een long press.
+  - Ik zou je refresh-actie gewoon voor beiden gebruiken: swipe-down als gesture en je view naar beneden halen en terug naar boven laten 'bouncen' als animatie.
+
+Voor de rest heel goede voorstellen! Succes met de uitwerking!

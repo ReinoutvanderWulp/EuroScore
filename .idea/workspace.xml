@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ec51f72b-2560-4695-b82d-024f939e67bf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/aj2526-javascript-mobile-ReinoutvanderWulp.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/participants/details.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/participants/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/ranking/index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets-pe/Dashboard.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets-pe/Participants.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/images/Eurovision2026Logo.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PE.md" beforeDir="false" afterPath="$PROJECT_DIR$/PE.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +48,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-WS-252.28238.10" />
+        <option value="bundled-js-predefined-d6986cc7102b-3aa1da707db6-JavaScript-WS-252.27397.92" />
       </set>
     </attachedChunks>
   </component>
@@ -84,6 +69,7 @@
       <workItem from="1764151901592" duration="5812000" />
       <workItem from="1764328285841" duration="1442000" />
       <workItem from="1764336575425" duration="4765000" />
+      <workItem from="1764770136813" duration="345000" />
     </task>
     <servers />
   </component>
