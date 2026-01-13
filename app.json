@@ -1,34 +1,34 @@
 {
   "expo": {
-    "name": "project_mobile_dev",
-    "slug": "project_mobile_dev",
+    "name": "EuroScore",
+    "slug": "euroscore",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icons/icon.png",
     "scheme": "projectmobiledev",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
-      "image": "./assets/images/splash-icon.png",
+      "image": "./assets/icons/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#00008b"
     },
     "ios": {
       "supportsTablet": true
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+        "foregroundImage": "./assets/icons/adaptive-icon.png",
+        "backgroundColor": "#00008b"
       },
       "edgeToEdgeEnabled": true,
       "predictiveBackGestureEnabled": false,
-      "package": "com.sebastiaah.project_mobile_dev"
+      "package": "com.reinoutvdw.projectmobile.euroscore"
     },
     "web": {
       "bundler": "metro",
       "output": "static",
-      "favicon": "./assets/images/favicon.png"
+      "favicon": "./assets/icons/icon.png"
     },
     "plugins": ["expo-router"],
     "experiments": {
