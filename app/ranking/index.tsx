@@ -1,10 +1,11 @@
-import {Text, View} from 'react-native'
+import {View} from 'react-native'
 import {FunctionComponent} from 'react'
+import StyledText from '@/components/StyledText'
 
 const Index: FunctionComponent = ()=> {
   return (
     <View>
-      <Text>Index pagina ranking</Text>
+      <StyledText>Index pagina ranking</StyledText>
     </View>
   )
 }
