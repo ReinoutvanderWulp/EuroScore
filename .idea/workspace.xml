@@ -5,28 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="191139a1-3bf2-4fe8-bc53-7cb8fc9060eb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/aj2526-javascript-mobile-ReinoutvanderWulp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aj2526-javascript-mobile-ReinoutvanderWulp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/participants/details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/participants/details.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/participants/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/participants/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/ranking/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ranking/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/font/Eurovision.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ShowCountdowns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ShowCountdowns.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ShowTimer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ShowTimer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/StyledText.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/fonts.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +42,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "pnpm",
+    "prettierjs.PrettierConfiguration.Package": "C:\\Mobile\\aj2526-javascript-mobile-ReinoutvanderWulp\\node_modules\\prettier",
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "C:\\Mobile\\aj2526-javascript-mobile-ReinoutvanderWulp\\node_modules\\typescript\\lib",
@@ -79,7 +63,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1768378907876</updated>
-      <workItem from="1768378909721" duration="10207000" />
+      <workItem from="1768378909721" duration="19865000" />
     </task>
     <servers />
   </component>
