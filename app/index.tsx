@@ -1,10 +1,9 @@
 import {type FunctionComponent} from 'react'
-import {Image, ScrollView, View} from 'react-native'
+import {Image, ScrollView, View, Text} from 'react-native'
 import {StatusBar} from 'expo-status-bar'
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context'
 import {poster} from '@/types/images'
 import ShowCountdowns from '@/components/ShowCountdowns'
-import StyledText from '@/components/StyledText'
 
 const Index: FunctionComponent = () => {
 
@@ -13,9 +12,9 @@ const Index: FunctionComponent = () => {
       <SafeAreaView>
         <ScrollView>
           <View>
-            <ShowCountdowns/>
+            <ShowCountdowns />
           </View>
-          <StyledText>Welcome to the EuroScore app!</StyledText>
+          <Text>Welcome to EuroScore! Your ultimate Eurovision companion.</Text>
           <Image source={poster} />
           <StatusBar style="auto" />
         </ScrollView>

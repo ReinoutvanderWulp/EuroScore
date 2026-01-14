@@ -4,16 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ec51f72b-2560-4695-b82d-024f939e67bf" name="Changes" comment="">
+    <list default="true" id="191139a1-3bf2-4fe8-bc53-7cb8fc9060eb" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/aj2526-javascript-mobile-ReinoutvanderWulp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/aj2526-javascript-mobile-ReinoutvanderWulp.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/participants/details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/participants/details.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/participants/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/participants/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ranking/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ranking/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/Eurovision.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ShowCountdowns.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ShowCountdowns.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ShowTimer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ShowTimer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/StyledText.tsx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/images.ts" beforeDir="false" afterPath="$PROJECT_DIR$/types/images.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/fonts.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,46 +36,35 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 7
-}</component>
-  <component name="ProjectId" id="35hZtNTfWqoOD98ChpMvSbifoDo" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="38EyDfRwfUOFe64izUtOWOZIn6a" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Mobile/aj2526-javascript-mobile-ReinoutvanderWulp&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Mobile\\aj2526-javascript-mobile-ReinoutvanderWulp\\node_modules\\prettier&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Mobile\\aj2526-javascript-mobile-ReinoutvanderWulp\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "node",
+    "junie.onboarding.icon.badge.shown": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "pnpm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "C:\\Mobile\\aj2526-javascript-mobile-ReinoutvanderWulp\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\assets\font" />
-      <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\assets" />
-      <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\assets\typography" />
-      <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\types" />
-      <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\public" />
-    </key>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -72,46 +74,16 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="ec51f72b-2560-4695-b82d-024f939e67bf" name="Changes" comment="" />
-      <created>1763564481318</created>
+      <changelist id="191139a1-3bf2-4fe8-bc53-7cb8fc9060eb" name="Changes" comment="" />
+      <created>1768378907876</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1763564481318</updated>
-      <workItem from="1763564481318" duration="1667000" />
-      <workItem from="1763986053138" duration="649000" />
-      <workItem from="1763992638774" duration="789000" />
-      <workItem from="1763993620978" duration="483000" />
-      <workItem from="1763994123764" duration="450000" />
-      <workItem from="1764147894759" duration="116000" />
-      <workItem from="1764148057198" duration="1826000" />
-      <workItem from="1764151901592" duration="5812000" />
-      <workItem from="1764328285841" duration="1442000" />
-      <workItem from="1764336575425" duration="4765000" />
-      <workItem from="1764770136813" duration="345000" />
-      <workItem from="1764787484339" duration="198000" />
-      <workItem from="1767608087035" duration="3019000" />
-      <workItem from="1767801616827" duration="1374000" />
-      <workItem from="1767821246924" duration="228000" />
-      <workItem from="1767888389584" duration="1381000" />
-      <workItem from="1767972298986" duration="3203000" />
-      <workItem from="1768134164963" duration="1685000" />
-      <workItem from="1768210914702" duration="4318000" />
-      <workItem from="1768291403536" duration="1338000" />
-      <workItem from="1768294664974" duration="19407000" />
-      <workItem from="1768320828978" duration="4086000" />
+      <updated>1768378907876</updated>
+      <workItem from="1768378909721" duration="10207000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-    <option name="exactExcludedFiles">
-      <list>
-        <option value="$PROJECT_DIR$/types/images.d.ts" />
-      </list>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="PE" />
-    <option name="LAST_COMMIT_MESSAGE" value="PE" />
   </component>
 </project>

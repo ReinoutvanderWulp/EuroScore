@@ -1,29 +1,15 @@
-import {FunctionComponent, useEffect} from 'react'
-import {SplashScreen, Tabs} from 'expo-router'
+import {FunctionComponent} from 'react'
+import {Tabs} from 'expo-router'
 import {TagIcon} from 'lucide-react-native'
-import {useFonts} from 'expo-font'
 
 const RootLayout: FunctionComponent = () => {
-  void SplashScreen.preventAutoHideAsync()
-
-  const [fontsLoaded] = useFonts({})
-
-  useEffect(() => {
-    if (fontsLoaded) {
-      void SplashScreen.hideAsync()
-    }
-  }, [fontsLoaded])
-
-  if (!fontsLoaded) {
-    return null
-  }
 
   return (
     <Tabs>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Dashboard',
+          title: 'Home',
           tabBarIcon: ({color, size}) => <TagIcon size={size} color={color} />,
         }}
       />
