@@ -1,8 +1,8 @@
 import {ScrollView, Text} from 'react-native'
 import {FunctionComponent} from 'react'
+import ListComponent from "@/components/ListComponent";
 
 const Index: FunctionComponent = () => {
-
   return (
     <ScrollView>
       <Text>
@@ -10,7 +10,7 @@ const Index: FunctionComponent = () => {
         list will be updated to 2026.
       </Text>
       <Text>Discover this year's participating countries!</Text>
-      <Text>Search for a country:</Text>
+      <ListComponent />
     </ScrollView>
   )
 }

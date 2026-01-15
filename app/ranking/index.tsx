@@ -4,7 +4,7 @@ import {FunctionComponent} from 'react'
 const Index: FunctionComponent = ()=> {
   return (
     <View>
-      <Text>Index page ranking</Text>
+      <Text>ScoreBoard</Text>
     </View>
   )
 }

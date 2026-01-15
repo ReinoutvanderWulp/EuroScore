@@ -5,11 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="191139a1-3bf2-4fe8-bc53-7cb8fc9060eb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/participants/details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/participants/[country].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/participants/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/participants/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/ranking/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ranking/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/scripts/dummyData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/scripts/seedData.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/images.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/images.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/SupabaseClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/SupabaseClient.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,9 +25,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="38EyDfRwfUOFe64izUtOWOZIn6a" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,6 +38,7 @@
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
@@ -49,6 +56,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\utils" />
+      <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\assets\images" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -63,7 +76,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1768378907876</updated>
-      <workItem from="1768378909721" duration="19865000" />
+      <workItem from="1768378909721" duration="28394000" />
+      <workItem from="1768464425221" duration="11519000" />
+      <workItem from="1768479445001" duration="6430000" />
     </task>
     <servers />
   </component>
