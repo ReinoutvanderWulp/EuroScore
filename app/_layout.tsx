@@ -12,7 +12,7 @@ const RootLayout: FunctionComponent = () => {
         <Tabs.Screen
           name="index"
           options={{
-            title: 'Home',
+            title: 'Dashboard',
             tabBarIcon: ({color, size}) => <TagIcon size={size} color={color} />,
           }}
         />

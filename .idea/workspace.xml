@@ -6,16 +6,25 @@
   <component name="ChangeListManager">
     <list default="true" id="191139a1-3bf2-4fe8-bc53-7cb8fc9060eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/_layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/_layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/participants/details.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/participants/[country].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/participants/[country].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/participants/[country].tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/participants/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/participants/index.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/ranking/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/ranking/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/scripts/dummyData.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/scripts/seedData.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/adaptive-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/icons/splash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ParticipantComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ListItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/ParticipantItem.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/participants.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/participants.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/ranking.ts" beforeDir="false" afterPath="$PROJECT_DIR$/data/ranking.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/scripts/create.sql" beforeDir="false" afterPath="$PROJECT_DIR$/data/scripts/create.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/interfaces/ranking.ts" beforeDir="false" afterPath="$PROJECT_DIR$/interfaces/ranking.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pnpm-lock.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/types/images.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/images.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/SupabaseClient.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/SupabaseClient.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/types/points.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/images.ts" beforeDir="false" afterPath="$PROJECT_DIR$/utils/images.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,31 +42,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "main",
-    "javascript.preferred.runtime.type.id": "node",
-    "junie.onboarding.icon.badge.shown": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "pnpm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Mobile\\aj2526-javascript-mobile-ReinoutvanderWulp\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "C:\\Mobile\\aj2526-javascript-mobile-ReinoutvanderWulp\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Mobile\\aj2526-javascript-mobile-ReinoutvanderWulp\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Mobile\\aj2526-javascript-mobile-ReinoutvanderWulp\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\assets\icons" />
       <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\utils" />
       <recent name="C:\Mobile\aj2526-javascript-mobile-ReinoutvanderWulp\assets\images" />
     </key>
@@ -78,7 +88,9 @@
       <updated>1768378907876</updated>
       <workItem from="1768378909721" duration="28394000" />
       <workItem from="1768464425221" duration="11519000" />
-      <workItem from="1768479445001" duration="6430000" />
+      <workItem from="1768479445001" duration="18354000" />
+      <workItem from="1768550253963" duration="11095000" />
+      <workItem from="1768565415018" duration="12481000" />
     </task>
     <servers />
   </component>

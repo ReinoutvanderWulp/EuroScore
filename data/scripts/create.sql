@@ -15,3 +15,6 @@ CREATE TABLE IF NOT EXISTS ranking (
     country_id UUID REFERENCES participants(id) ON DELETE CASCADE,
     points INT
     );
+
+ALTER TABLE ranking
+    ADD CONSTRAINT unique_country_ranking UNIQUE (country_id);

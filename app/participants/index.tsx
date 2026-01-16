@@ -1,6 +1,7 @@
 import {ScrollView, Text} from 'react-native'
-import {FunctionComponent} from 'react'
-import ListComponent from "@/components/ListComponent";
+import {FunctionComponent, Suspense} from 'react'
+import ParticipantComponent from "@/components/ParticipantComponent";
+import Loading from "@/components/Loading";
 
 const Index: FunctionComponent = () => {
   return (
@@ -10,7 +11,9 @@ const Index: FunctionComponent = () => {
         list will be updated to 2026.
       </Text>
       <Text>Discover this year's participating countries!</Text>
-      <ListComponent />
+      <Suspense fallback={<Loading loadingText="participants"/>}>
+        <ParticipantComponent />
+      </Suspense>
     </ScrollView>
   )
 }

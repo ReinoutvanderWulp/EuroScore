@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const ListItem: FunctionComponent<ListItemProps> = ({participant}) => {
+const ParticipantItem: FunctionComponent<ListItemProps> = ({participant}) => {
   return (
     <Pressable
       onPress={() =>
@@ -27,11 +27,13 @@ const ListItem: FunctionComponent<ListItemProps> = ({participant}) => {
         })
       }>
       <View style={styles.row}>
-        <Image source={{uri: participant.flag_url || ''}} style={styles.flag} />
+        {participant.flag_url && (
+          <Image source={{ uri: participant.flag_url }} style={styles.flag} />
+        )}
         <Text>{participant.country}</Text>
       </View>
     </Pressable>
   )
 }
 
-export default ListItem
+export default ParticipantItem

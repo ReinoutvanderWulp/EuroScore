@@ -9,7 +9,7 @@ export const useGetParticipants = (): UseSuspenseQueryResult<Participant[], Erro
   })
 }
 
-export const useGetParticipantById = (country: string) => {
+export const useGetParticipantById = (country: string): UseSuspenseQueryResult<Participant | null, Error> => {
   return useSuspenseQuery({
     queryKey: ['countryName', country],
     queryFn: () => getParticipantById(country),
@@ -27,6 +27,10 @@ const getParticipants = async (): Promise<Participant[] | []> => {
 }
 
 const getParticipantById = async (country: string): Promise<Participant | null> => {
+  if (!country) {
+    return null
+  }
+
   const {data, error} = await supabase.from('participants').select(`*`).eq('country', country)
 
   if (error || !data) {
