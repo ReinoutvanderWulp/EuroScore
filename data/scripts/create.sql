@@ -18,3 +18,7 @@ CREATE TABLE IF NOT EXISTS ranking (
 
 ALTER TABLE ranking
     ADD CONSTRAINT unique_country_ranking UNIQUE (country_id);
+
+CREATE UNIQUE INDEX unique_points
+    ON ranking(points)
+    WHERE points > 0;
