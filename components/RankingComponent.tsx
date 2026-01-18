@@ -1,6 +1,6 @@
 import {FunctionComponent} from 'react'
 import RankingItem from '@/components/RankingItem'
-import {Text, View} from 'react-native'
+import {Alert, Text, View} from 'react-native'
 import {LegendList} from '@legendapp/list'
 import {useGetParticipants} from '@/data/participants'
 import {useGetRanking, useUpdateScore} from '@/data/ranking'
@@ -14,35 +14,27 @@ const RankingComponent: FunctionComponent = () => {
   const handleScoreChange = (countryId: string, points: Points) => {
     if (!rankings) return
 
-    if (points === 0) {
-      updateScore.mutate({countryId, points: 0})
-      return
-    }
+    const isUsed = rankings.some(r => r.points === points && r.country_id !== countryId)
 
-    const alreadyUsed = rankings.some(r => r.points === points && r.country_id !== countryId)
-
-    if (alreadyUsed) {
+    if (points !== 0 && isUsed) {
+      Alert.alert('Points already assigned', "You've already given this score to another country!")
       return
     }
 
     updateScore.mutate({countryId, points})
   }
 
-  const sortedParticipants =
-    participants && rankings
-      ? [...participants]
-          .map(p => ({
-            ...p,
-            points: rankings.find(r => r.country_id === p.id)?.points ?? 0,
-          }))
-          .sort((a, b) => b.points - a.points)
-      : []
+  const sortedParticipants = participants?.map(p => ({
+    ...p,
+    points: rankings?.find(r => r.country_id === p.id)?.points ?? 0
+  })).sort((a, b) => b.points - a.points);
 
   return (
     <View style={{flex: 1}}>
       <LegendList
         style={{flex: 1}}
         data={sortedParticipants}
+        estimatedItemSize={100}
         renderItem={({item: participant}) => (
           <RankingItem
             participant={participant}

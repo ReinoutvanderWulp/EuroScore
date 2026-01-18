@@ -3,6 +3,7 @@ import {View, Text, Image, StyleSheet} from 'react-native'
 import {Participant} from '@/interfaces/participants'
 import {Picker} from '@react-native-picker/picker'
 import {Points} from "@/types/Points";
+import * as Haptics from 'expo-haptics'
 
 interface RankingItemProps {
   participant: Participant & {points: number}
@@ -25,6 +26,15 @@ const styles = StyleSheet.create({
 const RankingItem: FunctionComponent<RankingItemProps> = ({participant, onChangeScore}) => {
   const pointsOptions: Points[] = [1, 2, 3, 4, 5, 6, 7, 8, 10, 12]
 
+  const handleValueChange = (value: Points) => {
+    if (value === participant.points) return
+    onChangeScore(value)
+
+    if (value === 12){
+      void Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success)
+    }
+  }
+
   return (
     <View style={styles.row}>
       {participant.flag_url && <Image source={{uri: participant.flag_url}} style={styles.flag} />}
@@ -34,7 +44,7 @@ const RankingItem: FunctionComponent<RankingItemProps> = ({participant, onChange
       <Picker
         style={styles.picker}
         selectedValue={participant.points}
-        onValueChange={value => onChangeScore(value as Points)}>
+        onValueChange={value => handleValueChange(value as Points)}>
         <Picker.Item label="0" value={0} />
         {pointsOptions.map(p => (
           <Picker.Item key={p} label={String(p)} value={p} />

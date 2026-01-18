@@ -12,6 +12,10 @@ const styles = StyleSheet.create({
   },
   container: {
     gap: 15,
+    flex: 1,
+  },
+  row: {
+    flexDirection: "row"
   },
 })
 
@@ -32,18 +36,30 @@ const DetailsComponent: FunctionComponent = () => {
       <Text>Details about: {participant.country}</Text>
       <Image source={{uri: participant.flag_url || ''}} style={styles.flag} />
       <View>
-        <Text>👨‍🎤 Artist: </Text>
-        <Text>{participant.artist}</Text>
-        <Text>🎵 Song: </Text>
-        <Text>{participant.song}</Text>
-        <Text>🔄 Previous participation: </Text>
-        <Text>{participant.returning_artist ? '✅ Yes' : '❌ No'}</Text>
-        <Text>🏆 Number of victories: </Text>
-        <Text>{participant.country_wins}</Text>
-        <Text>🎸 Genre: </Text>
-        <Text>{participant.genre}</Text>
-        <Text>🎧 Listen to the song via Spotify:</Text>
-        <LinkButton url={participant.spotify_url} songName={participant.song} />
+        <View style={styles.row}>
+          <Text>👨‍🎤 Artist: </Text>
+          <Text>{participant.artist}</Text>
+        </View>
+        <View>
+          <Text>🎵 Song: </Text>
+          <Text>{participant.song}</Text>
+        </View>
+        <View>
+          <Text>🔄 Previous participation: </Text>
+          <Text>{participant.returning_artist ? '✅ Yes' : '❌ No'}</Text>
+        </View>
+        <View>
+          <Text>🏆 Number of victories: </Text>
+          <Text>{participant.country_wins}</Text>
+        </View>
+        <View>
+          <Text>🎸 Genre: </Text>
+          <Text>{participant.genre}</Text>
+        </View>
+        <View>
+          <Text>🎧 Listen to the song via Spotify:</Text>
+          <LinkButton url={participant.spotify_url} songName={participant.song} />
+        </View>
       </View>
       <Image style={{width: '50%', height: '50%'}} source={baselLogo} />
     </View>

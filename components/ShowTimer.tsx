@@ -9,7 +9,7 @@ interface ShowTimerProps {
 }
 
 const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDuration}) => {
-  const [currentTime, setCurrentTime] = useState(new Date())
+  const [currentTime, setCurrentTime] = useState(() => new Date())
 
   useEffect(() => {
     const intervalId = setInterval(() => {
