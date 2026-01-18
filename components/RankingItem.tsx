@@ -1,9 +1,10 @@
 import {FunctionComponent} from 'react'
-import {View, Text, Image, StyleSheet} from 'react-native'
+import {View, Image, StyleSheet} from 'react-native'
 import {Participant} from '@/interfaces/participants'
 import {Picker} from '@react-native-picker/picker'
 import {Points} from "@/types/Points";
 import * as Haptics from 'expo-haptics'
+import StyledText from '@/components/StyledText'
 
 interface RankingItemProps {
   participant: Participant & {points: number}
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   picker: {
-    width: 100
+    width: 100,
   }
 })
 
@@ -38,9 +39,9 @@ const RankingItem: FunctionComponent<RankingItemProps> = ({participant, onChange
   return (
     <View style={styles.row}>
       {participant.flag_url && <Image source={{uri: participant.flag_url}} style={styles.flag} />}
-      <Text>
+      <StyledText>
         {participant.country} {participant.points === 12 ? ' ⭐' : ' ☆'}
-      </Text>
+      </StyledText>
       <Picker
         style={styles.picker}
         selectedValue={participant.points}

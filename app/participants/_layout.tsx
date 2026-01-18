@@ -1,12 +1,20 @@
 import {Stack} from 'expo-router'
 import {FunctionComponent} from 'react'
+import GradientStyle from '@/components/GradientStyle'
 
 const ParticipantsLayout: FunctionComponent = () => {
   return (
-    <Stack>
-      <Stack.Screen name="index"
+    <Stack
+      screenOptions={{
+        headerTitleStyle: {fontWeight: 'bold'},
+        headerTintColor: '#ffffff',
+        headerBackground: () => <GradientStyle topPosition={true} />,
+        contentStyle: {backgroundColor: '#00008b'}
+      }}>
+      <Stack.Screen
+        name="index"
         options={{
-          title: 'Participants'
+          title: 'Participants',
         }}
       />
       <Stack.Screen

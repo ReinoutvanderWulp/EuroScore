@@ -1,5 +1,5 @@
 import {FunctionComponent} from 'react'
-import {Text} from 'react-native'
+import StyledText from '@/components/StyledText'
 
 interface LoadingProps {
   loadingText: string
@@ -7,7 +7,7 @@ interface LoadingProps {
 
 const Loading: FunctionComponent<LoadingProps> = ({loadingText}) => {
   return (
-    <Text>Loading {loadingText}...</Text>
+    <StyledText>Loading {loadingText}...</StyledText>
   )
 }
 

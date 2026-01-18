@@ -1,10 +1,12 @@
 import {FunctionComponent} from 'react'
 import {Tabs} from 'expo-router'
-import {TagIcon} from 'lucide-react-native'
+import {ClipboardList, House, UserRound} from 'lucide-react-native'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import * as Notifications from 'expo-notifications'
 const queryClient = new QueryClient()
 import EurovisionNotifications from '@/components/EurovisionNotifications'
+import GradientStyle from '@/components/GradientStyle'
+import {View} from 'react-native'
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -18,31 +20,45 @@ Notifications.setNotificationHandler({
 const RootLayout: FunctionComponent = () => {
   return (
     <QueryClientProvider client={queryClient}>
-      <EurovisionNotifications/>
-      <Tabs>
-        <Tabs.Screen
-          name="index"
-          options={{
-            title: 'Dashboard',
-            tabBarIcon: ({color, size}) => <TagIcon size={size} color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="participants"
-          options={{
-            title: 'Participants',
-            headerShown: false,
-            tabBarIcon: ({color, size}) => <TagIcon size={size} color={color} />,
-          }}
-        />
-        <Tabs.Screen
-          name="ranking/index"
-          options={{
-            title: 'ScoreBoard',
-            tabBarIcon: ({color, size}) => <TagIcon size={size} color={color} />,
-          }}
-        />
-      </Tabs>
+      <View style={{flex: 1, backgroundColor: '#00008b'}}>
+        <EurovisionNotifications />
+        <Tabs
+          screenOptions={{
+            tabBarInactiveTintColor: 'white',
+            sceneStyle: {backgroundColor: '#00008b'},
+            headerTitleStyle: {fontWeight: 'bold'},
+            headerTintColor: '#ffffff',
+            headerBackground: () => <GradientStyle topPosition={true} />,
+            tabBarStyle: {
+              backgroundColor: 'transparent',
+              overflow: 'hidden',
+            },
+            tabBarBackground: () => <GradientStyle topPosition={false} />,
+          }}>
+          <Tabs.Screen
+            name="index"
+            options={{
+              title: 'Dashboard',
+              tabBarIcon: ({color, size}) => <House size={size} color={color} />,
+            }}
+          />
+          <Tabs.Screen
+            name="participants"
+            options={{
+              title: 'Participants',
+              headerShown: false,
+              tabBarIcon: ({color, size}) => <UserRound size={size} color={color} />,
+            }}
+          />
+          <Tabs.Screen
+            name="ranking/index"
+            options={{
+              title: 'ScoreBoard',
+              tabBarIcon: ({color, size}) => <ClipboardList size={size} color={color} />,
+            }}
+          />
+        </Tabs>
+      </View>
     </QueryClientProvider>
   )
 }

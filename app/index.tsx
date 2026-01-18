@@ -1,8 +1,9 @@
 import {type FunctionComponent} from 'react'
-import {Image, ScrollView, View, Text} from 'react-native'
+import {Image, ScrollView, View} from 'react-native'
 import {StatusBar} from 'expo-status-bar'
 import {poster} from '@/utils/images'
 import ShowCountdowns from '@/components/ShowCountdowns'
+import StyledTitle from '@/components/StyledTitle'
 
 const Index: FunctionComponent = () => {
 
@@ -11,7 +12,7 @@ const Index: FunctionComponent = () => {
           <View>
             <ShowCountdowns />
           </View>
-          <Text>Welcome to EuroScore! Your ultimate Eurovision companion.</Text>
+          <StyledTitle>Welcome to EuroScore! Your ultimate Eurovision companion.</StyledTitle>
           <Image source={poster} />
           <StatusBar style="auto" />
         </ScrollView>

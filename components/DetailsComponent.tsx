@@ -1,9 +1,11 @@
-import {Image, StyleSheet, Text, View} from "react-native";
+import {Image, StyleSheet, View} from "react-native";
 import {FunctionComponent} from "react";
 import {useLocalSearchParams} from "expo-router";
 import {useGetParticipantById} from "@/data/participants";
 import {baselLogo} from '@/utils/images'
 import LinkButton from '@/components/LinkButton'
+import StyledTitle from '@/components/StyledTitle'
+import StyledText from '@/components/StyledText'
 
 const styles = StyleSheet.create({
   flag: {
@@ -24,40 +26,40 @@ const DetailsComponent: FunctionComponent = () => {
   const {data: participant, error} = useGetParticipantById(country)
 
   if (!participant) {
-    return <Text>Participant not found. Try another one!</Text>
+    return <StyledText>Participant not found. Try another one!</StyledText>
   }
 
   if (error) {
-    return <Text>Something went wrong while loading data.</Text>
+    return <StyledText>Something went wrong while loading data.</StyledText>
   }
 
   return (
     <View style={styles.container}>
-      <Text>Details about: {participant.country}</Text>
+      <StyledTitle>Details about: {participant.country}</StyledTitle>
       <Image source={{uri: participant.flag_url || ''}} style={styles.flag} />
       <View>
         <View style={styles.row}>
-          <Text>👨‍🎤 Artist: </Text>
-          <Text>{participant.artist}</Text>
+          <StyledText>👨‍🎤 Artist: </StyledText>
+          <StyledText>{participant.artist}</StyledText>
         </View>
         <View>
-          <Text>🎵 Song: </Text>
-          <Text>{participant.song}</Text>
+          <StyledText>🎵 Song: </StyledText>
+          <StyledText>{participant.song}</StyledText>
         </View>
         <View>
-          <Text>🔄 Previous participation: </Text>
-          <Text>{participant.returning_artist ? '✅ Yes' : '❌ No'}</Text>
+          <StyledText>🔄 Previous participation: </StyledText>
+          <StyledText>{participant.returning_artist ? '✅ Yes' : '❌ No'}</StyledText>
         </View>
         <View>
-          <Text>🏆 Number of victories: </Text>
-          <Text>{participant.country_wins}</Text>
+          <StyledText>🏆 Number of victories: </StyledText>
+          <StyledText>{participant.country_wins}</StyledText>
         </View>
         <View>
-          <Text>🎸 Genre: </Text>
-          <Text>{participant.genre}</Text>
+          <StyledText>🎸 Genre: </StyledText>
+          <StyledText>{participant.genre}</StyledText>
         </View>
         <View>
-          <Text>🎧 Listen to the song via Spotify:</Text>
+          <StyledText>🎧 Listen to the song via Spotify:</StyledText>
           <LinkButton url={participant.spotify_url} songName={participant.song} />
         </View>
       </View>

@@ -1,6 +1,8 @@
 import {FunctionComponent, useEffect, useState} from 'react'
 import {differenceInHours, differenceInSeconds} from 'date-fns'
-import {View, Text} from 'react-native'
+import {View} from 'react-native'
+import StyledTitle from '@/components/StyledTitle'
+import StyledText from '@/components/StyledText'
 
 interface ShowTimerProps {
   title: string
@@ -31,8 +33,8 @@ const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDur
 
     return (
       <View style={{marginBottom: 12}}>
-        <Text style={{fontWeight: 'bold'}}>{title}</Text>
-        <Text>{`${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`}</Text>
+        <StyledTitle>{title}</StyledTitle>
+        <StyledText>{`${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`}</StyledText>
       </View>
     )
   }
@@ -42,16 +44,16 @@ const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDur
   if (hoursSinceStart < showDuration) {
     return (
       <View style={{marginBottom: 12}}>
-        <Text style={{fontWeight: 'bold'}}>{title}</Text>
-        <Text>{title} has begun!</Text>
+        <StyledTitle>{title}</StyledTitle>
+        <StyledText>{title} has begun!</StyledText>
       </View>
     )
   }
 
   return (
     <View style={{marginBottom: 12}}>
-      <Text style={{fontWeight: 'bold'}}>{title}</Text>
-      <Text>You can rewatch the event on Eurovision's Youtube!</Text>
+      <StyledTitle>{title}</StyledTitle>
+      <StyledText>You can rewatch the event on Eurovision's Youtube!</StyledText>
     </View>
   )
 }

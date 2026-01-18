@@ -1,8 +1,9 @@
 import {FunctionComponent, useState} from "react";
-import {TextInput, View, Text} from "react-native";
+import {TextInput, View} from "react-native";
 import {LegendList} from "@legendapp/list";
 import ParticipantItem from "@/components/ParticipantItem";
 import {useGetParticipants} from "@/data/participants";
+import StyledText from '@/components/StyledText'
 
 const ParticipantComponent: FunctionComponent = () => {
   const {data: participants} = useGetParticipants()
@@ -24,7 +25,7 @@ const ParticipantComponent: FunctionComponent = () => {
         keyExtractor={participant => participant.id}
         recycleItems={true}
         ListEmptyComponent={
-            <Text>No results were found for: {searchValue}</Text>
+            <StyledText>No results were found for: {searchValue}</StyledText>
         }
       />
     </View>

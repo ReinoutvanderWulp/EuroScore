@@ -1,7 +1,8 @@
 import {FunctionComponent} from 'react'
 import {Participant} from '@/interfaces/participants'
-import {Image, Pressable, View, Text, StyleSheet} from 'react-native'
+import {Image, Pressable, View, StyleSheet} from 'react-native'
 import {router} from 'expo-router'
+import StyledText from '@/components/StyledText'
 
 interface ListItemProps {
   participant: Participant
@@ -30,7 +31,7 @@ const ParticipantItem: FunctionComponent<ListItemProps> = ({participant}) => {
         {participant.flag_url && (
           <Image source={{ uri: participant.flag_url }} style={styles.flag} />
         )}
-        <Text>{participant.country}</Text>
+        <StyledText>{participant.country}</StyledText>
       </View>
     </Pressable>
   )

@@ -1,7 +1,8 @@
-import {Alert, ScrollView, Text} from 'react-native'
+import {Alert, ScrollView} from 'react-native'
 import {FunctionComponent, Suspense, useEffect} from 'react'
 import ParticipantComponent from "@/components/ParticipantComponent";
 import Loading from "@/components/Loading";
+import StyledTitle from '@/components/StyledTitle'
 
 const Index: FunctionComponent = () => {
   useEffect(() => {
@@ -13,7 +14,7 @@ const Index: FunctionComponent = () => {
 
   return (
     <ScrollView>
-      <Text>Discover this year's participating countries!</Text>
+      <StyledTitle>Discover this year's participating countries!</StyledTitle>
       <Suspense fallback={<Loading loadingText="participants"/>}>
         <ParticipantComponent />
       </Suspense>

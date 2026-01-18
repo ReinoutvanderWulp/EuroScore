@@ -1,10 +1,11 @@
 import {FunctionComponent} from 'react'
 import RankingItem from '@/components/RankingItem'
-import {Alert, Text, View} from 'react-native'
+import {Alert, View} from 'react-native'
 import {LegendList} from '@legendapp/list'
 import {useGetParticipants} from '@/data/participants'
 import {useGetRanking, useUpdateScore} from '@/data/ranking'
 import {Points} from "@/types/Points";
+import StyledText from '@/components/StyledText'
 
 const RankingComponent: FunctionComponent = () => {
   const {data: participants} = useGetParticipants()
@@ -44,7 +45,7 @@ const RankingComponent: FunctionComponent = () => {
         keyExtractor={participant => participant.id}
         recycleItems={false}
         ListEmptyComponent={
-            <Text>no participants found to rate</Text>
+            <StyledText>no participants found to rate</StyledText>
         }
       />
     </View>
