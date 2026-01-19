@@ -3,6 +3,15 @@ import {useMutation, useQueryClient, useSuspenseQuery, UseSuspenseQueryResult} f
 import {Ranking} from '@/interfaces/ranking'
 import {Points} from "@/types/Points";
 
+export const useRefreshData = (): (() => void) => {
+  const queryClient = useQueryClient()
+
+  return async () => {
+    await queryClient.invalidateQueries({queryKey: ['rankings']})
+    await queryClient.invalidateQueries({queryKey: ['participants']})
+  }
+}
+
 export const useGetRanking = (): UseSuspenseQueryResult<Ranking[], Error> => {
   return useSuspenseQuery({
     queryKey: ['rankings'],

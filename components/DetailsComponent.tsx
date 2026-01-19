@@ -9,8 +9,8 @@ import StyledText from '@/components/StyledText'
 
 const styles = StyleSheet.create({
   flag: {
-    width: 80,
-    height: 80,
+    width: 70,
+    height: 70,
   },
   container: {
     gap: 15,
@@ -42,19 +42,19 @@ const DetailsComponent: FunctionComponent = () => {
           <StyledText>👨‍🎤 Artist: </StyledText>
           <StyledText>{participant.artist}</StyledText>
         </View>
-        <View>
+        <View style={styles.row}>
           <StyledText>🎵 Song: </StyledText>
           <StyledText>{participant.song}</StyledText>
         </View>
-        <View>
+        <View style={styles.row}>
           <StyledText>🔄 Previous participation: </StyledText>
           <StyledText>{participant.returning_artist ? '✅ Yes' : '❌ No'}</StyledText>
         </View>
-        <View>
+        <View style={styles.row}>
           <StyledText>🏆 Number of victories: </StyledText>
           <StyledText>{participant.country_wins}</StyledText>
         </View>
-        <View>
+        <View style={styles.row}>
           <StyledText>🎸 Genre: </StyledText>
           <StyledText>{participant.genre}</StyledText>
         </View>

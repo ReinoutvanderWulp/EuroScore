@@ -1,6 +1,7 @@
 import {FunctionComponent} from "react";
-import {Linking, Pressable, StyleSheet} from 'react-native'
+import {Linking, Pressable, StyleSheet, View} from 'react-native'
 import StyledText from '@/components/StyledText'
+import {Music} from 'lucide-react-native'
 
 interface LinkButtonProps {
     url: string | null
@@ -10,10 +11,16 @@ interface LinkButtonProps {
 const LinkButton: FunctionComponent<LinkButtonProps> = ({url, songName}) => {
   const styles = StyleSheet.create({
     button: {
-      backgroundColor: 'white',
-      color: '#ff0000',
-      justifyContent: 'center',
+      backgroundColor: 'rgba(255, 255, 255, 0.15)',
+      color: 'white',
+      alignItems: 'center',
       borderRadius: 20,
+      borderWidth: 1,
+      borderColor: 'white',
+    },
+    buttonContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
     }
   })
 
@@ -24,9 +31,12 @@ const LinkButton: FunctionComponent<LinkButtonProps> = ({url, songName}) => {
     }
 
     return (
-        <Pressable onPress={() => Linking.openURL(url)} style={styles.button}>
-            <StyledText>Listen to {songName}</StyledText>
-        </Pressable>
+      <Pressable onPress={() => Linking.openURL(url)} style={styles.button}>
+        <View style={styles.buttonContainer}>
+          <Music size={20} color="white" />
+          <StyledText>Listen to {songName}</StyledText>
+        </View>
+      </Pressable>
     )
 }
 

@@ -18,14 +18,19 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
+    alignItems: 'center',
   },
   picker: {
-    width: 100,
+    width: 110,
+    color: 'white',
+  },
+  text: {
+    flex: 1,
   }
 })
 
 const RankingItem: FunctionComponent<RankingItemProps> = ({participant, onChangeScore}) => {
-  const pointsOptions: Points[] = [1, 2, 3, 4, 5, 6, 7, 8, 10, 12]
+  const pointsOptions: Points[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12]
 
   const handleValueChange = (value: Points) => {
     if (value === participant.points) return
@@ -39,14 +44,14 @@ const RankingItem: FunctionComponent<RankingItemProps> = ({participant, onChange
   return (
     <View style={styles.row}>
       {participant.flag_url && <Image source={{uri: participant.flag_url}} style={styles.flag} />}
-      <StyledText>
+      <StyledText style={styles.text}>
         {participant.country} {participant.points === 12 ? ' ⭐' : ' ☆'}
       </StyledText>
       <Picker
         style={styles.picker}
+        dropdownIconColor="white"
         selectedValue={participant.points}
         onValueChange={value => handleValueChange(value as Points)}>
-        <Picker.Item label="0" value={0} />
         {pointsOptions.map(p => (
           <Picker.Item key={p} label={String(p)} value={p} />
         ))}
