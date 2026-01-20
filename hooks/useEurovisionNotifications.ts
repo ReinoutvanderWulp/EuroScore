@@ -11,15 +11,11 @@ interface EventNotification {
 export const useEurovisionNotifications = (events: EventNotification[]) => {
   useEffect(() => {
     const setupNotifications = async () => {
-      const {status: existingStatus} = await Notifications.getPermissionsAsync()
-      let finalStatus = existingStatus
+      const {status} = await Notifications.getPermissionsAsync()
 
-      if (existingStatus !== Notifications.PermissionStatus.GRANTED){
-        const {status} = await Notifications.requestPermissionsAsync()
-        finalStatus = status
+      if (status !== Notifications.PermissionStatus.GRANTED){
+        return
       }
-
-      if (finalStatus !== Notifications.PermissionStatus.GRANTED) return
 
       if (Platform.OS === 'android') {
         await Notifications.setNotificationChannelAsync('eurovision-alerts', {

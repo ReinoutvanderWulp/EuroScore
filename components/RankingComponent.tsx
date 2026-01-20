@@ -16,22 +16,21 @@ const RankingComponent: FunctionComponent = () => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
-      gap: 15,
-    },
-    gestureContainer: {
-      flex: 1,
     }
   })
 
   const {data: participants} = useGetParticipants()
   const {data: rankings} = useGetRanking()
   const updateScore = useUpdateScore()
-  const refreshDate = useRefreshData()
+  const refreshData = useRefreshData()
   const translateY = useSharedValue(0)
   const hapticActive = useSharedValue(false)
+  const scrollY = useSharedValue(0)
 
   const refreshGesture = Gesture.Pan()
     .onUpdate(event => {
+      if (scrollY.value > 0) return
+
       if (event.translationY > 0) {
         translateY.value = event.translationY
 
@@ -43,11 +42,10 @@ const RankingComponent: FunctionComponent = () => {
     })
     .onEnd(() => {
       if (translateY.value > Refresh_Value) {
-        runOnJS(refreshDate)()
+        runOnJS(refreshData)()
       }
 
       hapticActive.value = false
-
       translateY.value = withSpring(0, {
         damping: 12,
         stiffness: 120,
@@ -66,6 +64,7 @@ const RankingComponent: FunctionComponent = () => {
 
     if (points !== 0 && isUsed) {
       Alert.alert('Points already assigned', "You've already given this score to another country!")
+      refreshData()
       return
     }
 
@@ -80,21 +79,21 @@ const RankingComponent: FunctionComponent = () => {
     .sort((a, b) => b.points - a.points)
 
   return (
-    <View style={styles.gestureContainer}>
+    <View style={styles.container}>
       <GestureDetector gesture={refreshGesture}>
         <Animated.View style={[styles.container, animatedStyle]}>
           <LegendList
-            style={{flex: 1}}
+            style={styles.container}
             data={sortedParticipants}
-            estimatedItemSize={100}
+            estimatedItemSize={50}
             renderItem={({item: participant}) => (
               <RankingItem
                 participant={participant}
                 onChangeScore={points => handleScoreChange(participant.id, points)}
               />
             )}
-            keyExtractor={participant => participant.id}
-            recycleItems={false}
+            keyExtractor={participant => `${participant.id}-${participant.points}`}
+            recycleItems={true}
             ListEmptyComponent={<StyledText>no participants found to rate</StyledText>}
           />
         </Animated.View>

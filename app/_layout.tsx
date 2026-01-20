@@ -32,53 +32,51 @@ const RootLayout: FunctionComponent = () => {
   })
 
   return (
-    
     <GluestackUIProvider mode="dark">
-      <GestureHandlerRootView style={styles.gestureStyle}>
-      <QueryClientProvider client={queryClient}>
-        <View style={styles.rootStyle}>
-          <EurovisionNotifications />
-          <Tabs
-            screenOptions={{
-              tabBarInactiveTintColor: 'white',
-              sceneStyle: {backgroundColor: '#00008b'},
-              headerTitleStyle: {fontWeight: 'bold'},
-              headerTintColor: '#ffffff',
-              headerBackground: () => <GradientStyle topPosition={true} />,
-              tabBarStyle: {
-                backgroundColor: 'transparent',
-                overflow: 'hidden',
-              },
-              tabBarBackground: () => <GradientStyle topPosition={false} />,
-            }}>
-            <Tabs.Screen
-              name="index"
-              options={{
-                title: 'Dashboard',
-                tabBarIcon: ({color, size}) => <House size={size} color={color} />,
-              }}
-            />
-            <Tabs.Screen
-              name="participants"
-              options={{
-                title: 'Participants',
-                headerShown: false,
-                tabBarIcon: ({color, size}) => <UserRound size={size} color={color} />,
-              }}
-            />
-            <Tabs.Screen
-              name="ranking/index"
-              options={{
-                title: 'ScoreBoard',
-                tabBarIcon: ({color, size}) => <ClipboardList size={size} color={color} />,
-              }}
-            />
-          </Tabs>
-        </View>
-      </QueryClientProvider>
-    </GestureHandlerRootView>
+        <GestureHandlerRootView style={styles.gestureStyle}>
+            <QueryClientProvider client={queryClient}>
+                <View style={styles.rootStyle}>
+                    <EurovisionNotifications />
+                    <Tabs
+                        screenOptions={{
+                            tabBarInactiveTintColor: 'white',
+                            sceneStyle: {backgroundColor: '#00008b'},
+                            headerTitleStyle: {fontWeight: 'bold'},
+                            headerTintColor: '#ffffff',
+                            headerBackground: () => <GradientStyle topPosition={true} />,
+                            tabBarStyle: {
+                                backgroundColor: 'transparent',
+                                overflow: 'hidden',
+                            },
+                            tabBarBackground: () => <GradientStyle topPosition={false} />,
+                        }}>
+                        <Tabs.Screen
+                            name="index"
+                            options={{
+                                title: 'Dashboard',
+                                tabBarIcon: ({color, size}) => <House size={size} color={color} />,
+                            }}
+                        />
+                        <Tabs.Screen
+                            name="participants"
+                            options={{
+                                title: 'Participants',
+                                headerShown: false,
+                                tabBarIcon: ({color, size}) => <UserRound size={size} color={color} />,
+                            }}
+                        />
+                        <Tabs.Screen
+                            name="ranking/index"
+                            options={{
+                                title: 'ScoreBoard',
+                                tabBarIcon: ({color, size}) => <ClipboardList size={size} color={color} />,
+                            }}
+                        />
+                    </Tabs>
+                </View>
+            </QueryClientProvider>
+        </GestureHandlerRootView>
     </GluestackUIProvider>
-  
   )
 }
 

@@ -51,7 +51,11 @@ const RankingItem: FunctionComponent<RankingItemProps> = ({participant, onChange
         style={styles.picker}
         dropdownIconColor="white"
         selectedValue={participant.points}
-        onValueChange={value => handleValueChange(value as Points)}>
+        onValueChange={value => {
+          if (value !== participant.points) {
+            handleValueChange(value as Points)
+          }
+        }}>
         {pointsOptions.map(p => (
           <Picker.Item key={p} label={String(p)} value={p} />
         ))}

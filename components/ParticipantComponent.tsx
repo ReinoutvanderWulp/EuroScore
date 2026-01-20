@@ -1,10 +1,10 @@
 import {FunctionComponent, useState} from "react";
-import {StyleSheet, TextInput, View} from 'react-native'
+import {Pressable, StyleSheet, TextInput, View} from 'react-native'
 import {LegendList} from "@legendapp/list";
 import ParticipantItem from "@/components/ParticipantItem";
 import {useGetParticipants} from "@/data/participants";
 import StyledText from '@/components/StyledText'
-import {Search} from 'lucide-react-native'
+import {Search, X} from 'lucide-react-native'
 
 const ParticipantComponent: FunctionComponent = () => {
   const styles = StyleSheet.create({
@@ -16,8 +16,11 @@ const ParticipantComponent: FunctionComponent = () => {
       borderWidth: 1,
       borderColor: 'white',
     },
+    textInput: {
+      flex: 1,
+      color: 'white',
+    },
     container: {
-      gap: 15,
       flex: 1,
     }
   })
@@ -31,13 +34,20 @@ const ParticipantComponent: FunctionComponent = () => {
     const countryName = p.country?.toLowerCase() ?? ''
     return countryName.includes(searchValue)
   })
+
   return (
     <View style={styles.container}>
       <View style={styles.input}>
         <Search size={20} color="white"/>
-        <TextInput placeholder="Search for a country" placeholderTextColor="white" value={search} onChangeText={setSearch} />
+        <TextInput style={styles.textInput} placeholder="Search for a country" value={search} onChangeText={setSearch} />
+        {search.length > 0 && (
+          <Pressable>
+            <X size={20} color="white" onPress={() => setSearch('')}/>
+          </Pressable>
+        )}
       </View>
       <LegendList
+        style={styles.container}
         data={filteredParticipants}
         renderItem={({item: participant}) => <ParticipantItem participant={participant} />}
         keyExtractor={participant => participant.id}

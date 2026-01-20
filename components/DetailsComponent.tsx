@@ -1,7 +1,7 @@
 import {Image, StyleSheet, View} from "react-native";
 import {FunctionComponent} from "react";
 import {useLocalSearchParams} from "expo-router";
-import {useGetParticipantById} from "@/data/participants";
+import {useGetParticipantByCountryName} from "@/data/participants";
 import {baselLogo} from '@/utils/images'
 import LinkButton from '@/components/LinkButton'
 import StyledTitle from '@/components/StyledTitle'
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
 
 const DetailsComponent: FunctionComponent = () => {
   const {country} = useLocalSearchParams<{country: string}>()
-  const {data: participant, error} = useGetParticipantById(country)
+  const {data: participant, error} = useGetParticipantByCountryName(country)
 
   if (!participant) {
     return <StyledText>Participant not found. Try another one!</StyledText>

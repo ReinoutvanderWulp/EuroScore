@@ -9,10 +9,10 @@ export const useGetParticipants = (): UseSuspenseQueryResult<Participant[], Erro
   })
 }
 
-export const useGetParticipantById = (country: string): UseSuspenseQueryResult<Participant | null, Error> => {
+export const useGetParticipantByCountryName = (country: string): UseSuspenseQueryResult<Participant | null, Error> => {
   return useSuspenseQuery({
     queryKey: ['countryName', country],
-    queryFn: () => getParticipantById(country),
+    queryFn: () => getParticipantByCountry(country),
   })
 }
 
@@ -26,7 +26,7 @@ const getParticipants = async (): Promise<Participant[] | []> => {
   return data as Participant[]
 }
 
-const getParticipantById = async (country: string): Promise<Participant | null> => {
+const getParticipantByCountry = async (country: string): Promise<Participant | null> => {
   if (!country) {
     return null
   }
