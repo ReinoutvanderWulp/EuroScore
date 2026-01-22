@@ -44,7 +44,6 @@ const Index: FunctionComponent = () => {
       <ImageSlider images={imageSliderPosters}/>
       <StyledTitle>Check out the draw results!</StyledTitle>
       <ImageSlider images={imageSliderDraw}/>
-      <StyledTitle>Check out the confirmed countries for 2026 and tour info!</StyledTitle>
       <StyledTitle>Check out the images from the stage for Vienna 2026!</StyledTitle>
       <ImageSlider images={imageSliderStage}/>
       <StatusBar style="auto" />
