@@ -2,8 +2,6 @@
 
 **EuroScore** is a high-performance React Native application designed for the ultimate Eurovision experience. With this app, fans can track countdowns to the major shows, view participants, and manage their own personal ranking using the official scoring system.
 
----
-
 ## 🚀 Key Features
 
 - **Dynamic Show Timers:** Real-time countdowns to the semi-finals and the grand final, including live status updates while the show is in progress and after it has concluded.
@@ -12,8 +10,6 @@
 - **Haptic Feedback:** Physical vibrations when awarding "Douze Points" (12 points) for an immersive and rewarding user experience.
 - **Smart Notifications:** Automatic reminders scheduled 15 minutes before the start of every event.
 - **Advanced Pull-to-Refresh:** A custom animated refresh experience built with `React Native Reanimated`.
-
----
 
 ## 🛠️ Tech Stack
 
@@ -24,8 +20,6 @@
 - **Animations:** [Reanimated 3](https://docs.swmansion.com/react-native-reanimated/) & [Gesture Handler](https://docs.swmansion.com/react-native-gesture-handler/).
 - **Date Handling:** [date-fns](https://date-fns.org/) for accurate countdown calculations.
 
----
-
 ## 📱 Installation & Demo (Android)
 
 You can test the app directly on an Android device:
@@ -33,8 +27,9 @@ You can test the app directly on an Android device:
 1. **Download the APK:** Scan the QR code below or download the file manually via [GitHub Releases](https://github.com/ReinoutvanderWulp/EuroScore/releases).
 2. **Installation:** Open the `.apk` file on your phone. Allow "Installation from unknown sources" if prompted by your system.
 
----
+![Download APK QR Code](./assets/qr-code.png)
 
 ## 👨‍💻 Author
-**Reinout van der Wulp** - Project Mobile Development 2026
-![Download APK QR Code](./assets/qr-code.png)
+Copyright © 2026 Reinout van der Wulp. All rights reserved.
+
+Unauthorized copying, modification, or distribution of this code via any medium is strictly prohibited. Personal use for educational review is permitted, but no part of this project may be used for commercial purposes or redistributed without prior written consent.
