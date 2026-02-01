@@ -30,6 +30,6 @@ You can test the app directly on an Android device:
 ![Download APK QR Code](./assets/qr-code.png)
 
 ## 👨‍💻 Author
-Copyright © 2026 Reinout van der Wulp. All rights reserved.
+**Copyright © 2026 Reinout van der Wulp. All rights reserved.**
 
 Unauthorized copying, modification, or distribution of this code via any medium is strictly prohibited. Personal use for educational review is permitted, but no part of this project may be used for commercial purposes or redistributed without prior written consent.
