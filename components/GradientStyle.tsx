@@ -9,7 +9,7 @@ interface GradientStyleProps {
 const GradientStyle: FunctionComponent<GradientStyleProps> = ({topPosition}) => {
   return (
     <LinearGradient
-      colors={['#ff0000', '#0000ff']}
+      colors={['#ff0000', '#008000']}
       start={{x: 0, y: 0}}
       end={{x: 1, y: 0}}
       style={[StyleSheet.absoluteFill, {

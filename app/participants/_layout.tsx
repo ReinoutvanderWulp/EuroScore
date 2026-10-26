@@ -9,7 +9,7 @@ const ParticipantsLayout: FunctionComponent = () => {
         headerTitleStyle: {fontWeight: 'bold'},
         headerTintColor: '#ffffff',
         headerBackground: () => <GradientStyle topPosition={true} />,
-        contentStyle: {backgroundColor: '#00008b'}
+        contentStyle: {backgroundColor: '#ffffff'}
       }}>
       <Stack.Screen
         name="index"

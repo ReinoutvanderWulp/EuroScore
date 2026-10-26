@@ -1,22 +1,21 @@
-import {FunctionComponent} from "react";
-import {StyleSheet, Text} from 'react-native'
+import {FunctionComponent, ReactNode} from 'react'
+import {StyleProp, StyleSheet, Text, TextStyle} from 'react-native'
 
 interface StyledTitleProps {
-    children?: React.ReactNode
+  children?: ReactNode
+  style?: StyleProp<TextStyle>
 }
 
-const StyledTitle: FunctionComponent<StyledTitleProps> = ({children}) => {
-    const styles = StyleSheet.create({
-      title: {
-        color: 'white',
-        fontSize: 20,
-        fontWeight: 'bold',
-      },
-    })
-    
-    return (
-        <Text style={styles.title}>{children}</Text>
-    )
+const styles = StyleSheet.create({
+  title: {
+    color: '#000000',
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+})
+
+const StyledTitle: FunctionComponent<StyledTitleProps> = ({children, style}) => {
+  return <Text style={[styles.title, style]}>{children}</Text>
 }
 
 export default StyledTitle
