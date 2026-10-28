@@ -1,1 +1,1 @@
-export const grandFinal = new Date(2026, 4, 16, 21, 0)
+export const grandFinal = new Date(2027, 4, 15, 21, 0)

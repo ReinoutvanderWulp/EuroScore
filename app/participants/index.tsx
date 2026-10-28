@@ -14,7 +14,7 @@ const Index: FunctionComponent = () => {
   useEffect(() => {
     Alert.alert(
       'Notice about participants',
-      'The countries in this list are from 2025. As soon as each country has announced both the artist and song, the list will be updated to 2026.',
+      'The countries in this list are from 2026. As soon as each country has announced both the artist and song, the list will be updated to 2027.',
     )
   }, [])
 

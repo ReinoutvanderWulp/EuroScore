@@ -26,7 +26,7 @@ const Index: FunctionComponent = ()=> {
         <StyledTitle>Swipe the screen up to refresh</StyledTitle>
         <ArrowUp size={20} color="white"/>
       </View>
-      <StyledTitle>Europe starts voting now! Get ready to share the points among your favorite songs!</StyledTitle>
+      <StyledTitle>Europe start voting now! Get ready to share the points among your favorite songs!</StyledTitle>
       <Suspense fallback={<Loading loadingText="scoreboard" />}>
         <RankingComponent />
       </Suspense>

@@ -11,7 +11,7 @@ const Index: FunctionComponent = () => {
       <View>
         <ShowCountdowns />
       </View>
-      <StyledTitle>Welcome to EuroScore! Your ultimate Eurovision companion. #UnitedByMusic</StyledTitle>
+      <StyledTitle>Welcome to EuroScore, your ultimate Eurovision companion! #UnitedByMusic</StyledTitle>
       <StatusBar style="auto" />
     </ScrollView>
   )
