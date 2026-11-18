@@ -41,5 +41,6 @@ yarn-error.*
 /android
 .idea/
 
-# Firebase admin-sleutel (volledige beheerrechten, nooit committen)
-scripts/serviceAccountKey.json
+# Firebase admin-sleutel: overal in het project negeren
+serviceAccountKey*.json
+*-firebase-adminsdk-*.json
