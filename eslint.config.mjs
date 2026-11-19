@@ -57,6 +57,6 @@ export default tsEslint.config(
     },
   },
   {
-    ignores: ['.expo', 'android', 'ios', 'eslint.config.mjs'],
+    ignores: ['.expo', 'android', 'ios', 'eslint.config.mjs', 'scripts/**'],
   },
 )

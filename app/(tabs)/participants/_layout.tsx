@@ -1,6 +1,7 @@
-import {Stack} from 'expo-router'
 import {FunctionComponent} from 'react'
+import {Stack} from 'expo-router'
 import GradientStyle from '@/components/GradientStyle'
+import LogoutButton from '@/components/LogoutButton'
 
 const ParticipantsLayout: FunctionComponent = () => {
   return (
@@ -9,21 +10,11 @@ const ParticipantsLayout: FunctionComponent = () => {
         headerTitleStyle: {fontWeight: 'bold'},
         headerTintColor: '#ffffff',
         headerBackground: () => <GradientStyle topPosition={true} />,
-        contentStyle: {backgroundColor: '#ffffff'}
+        headerRight: () => <LogoutButton />,
+        contentStyle: {backgroundColor: '#ffffff'},
       }}>
-      <Stack.Screen
-        name="index"
-        options={{
-          title: 'Participants',
-        }}
-      />
-      <Stack.Screen
-        name="[country]"
-        options={{
-          title: 'Details',
-          headerShown: true,
-        }}
-      />
+      <Stack.Screen name="index" options={{title: 'Participants'}} />
+      <Stack.Screen name="[country]" options={{title: 'Details', headerShown: true}} />
     </Stack>
   )
 }

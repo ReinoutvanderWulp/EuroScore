@@ -2,10 +2,10 @@ import {Image, StyleSheet, View} from "react-native";
 import {FunctionComponent} from "react";
 import {useLocalSearchParams} from "expo-router";
 import {useGetParticipantByCountryName} from "@/data/participants";
-import {baselLogo} from '@/utils/images'
 import LinkButton from '@/components/LinkButton'
 import StyledTitle from '@/components/StyledTitle'
 import StyledText from '@/components/StyledText'
+import Loading from '@/components/Loading'
 
 const styles = StyleSheet.create({
   flag: {
@@ -23,14 +23,18 @@ const styles = StyleSheet.create({
 
 const DetailsComponent: FunctionComponent = () => {
   const {country} = useLocalSearchParams<{country: string}>()
-  const {data: participant, error} = useGetParticipantByCountryName(country)
+  const {data: participant, error, isLoading} = useGetParticipantByCountryName(country)
 
-  if (!participant) {
-    return <StyledText>Participant not found. Try another one!</StyledText>
+  if (isLoading) {
+    return <Loading loadingText="Loading Participant" />
   }
 
   if (error) {
-    return <StyledText>Something went wrong while loading data.</StyledText>
+    return <StyledText>Error while loading data.</StyledText>
+  }
+
+  if (!participant) {
+    return <StyledText>Participant not found. Try another one!</StyledText>
   }
 
   return (
@@ -63,7 +67,6 @@ const DetailsComponent: FunctionComponent = () => {
           <LinkButton url={participant.spotify_url} songName={participant.song} />
         </View>
       </View>
-      <Image style={{width: '50%', height: '50%'}} source={baselLogo} />
     </View>
   )
 }
