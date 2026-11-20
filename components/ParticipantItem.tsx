@@ -1,7 +1,7 @@
 import {FunctionComponent} from 'react'
-import {Participant} from '@/interfaces/participants'
-import {Image, Pressable, View, StyleSheet} from 'react-native'
+import {Image, Pressable, StyleSheet, View} from 'react-native'
 import {router} from 'expo-router'
+import {Participant} from '@/interfaces/participants'
 import StyledText from '@/components/StyledText'
 
 interface ListItemProps {
@@ -9,12 +9,15 @@ interface ListItemProps {
 }
 
 const styles = StyleSheet.create({
+  row: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 12,
+    paddingVertical: 8,
+  },
   flag: {
     width: 40,
     height: 40,
-  },
-  row: {
-    flexDirection: 'row',
   },
 })
 
@@ -29,7 +32,7 @@ const ParticipantItem: FunctionComponent<ListItemProps> = ({participant}) => {
       }>
       <View style={styles.row}>
         {participant.flag_url && (
-          <Image source={{ uri: participant.flag_url }} style={styles.flag} />
+          <Image source={{uri: participant.flag_url}} style={styles.flag} resizeMode="contain" />
         )}
         <StyledText>{participant.country}</StyledText>
       </View>

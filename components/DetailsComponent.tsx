@@ -1,23 +1,30 @@
-import {Image, StyleSheet, View} from "react-native";
-import {FunctionComponent} from "react";
-import {useLocalSearchParams} from "expo-router";
-import {useGetParticipantByCountryName} from "@/data/participants";
+import {FunctionComponent} from 'react'
+import {Image, ScrollView, StyleSheet, View} from 'react-native'
+import {useLocalSearchParams} from 'expo-router'
+import {useGetParticipantByCountryName} from '@/data/participants'
+import FullWidthImage from '@/components/FullWidthImage'
 import LinkButton from '@/components/LinkButton'
-import StyledTitle from '@/components/StyledTitle'
-import StyledText from '@/components/StyledText'
 import Loading from '@/components/Loading'
+import StyledText from '@/components/StyledText'
+import StyledTitle from '@/components/StyledTitle'
+import {esc2026stage} from '@/utils/images'
 
 const styles = StyleSheet.create({
-  flag: {
-    width: 70,
-    height: 70,
-  },
-  container: {
+  content: {
     gap: 15,
-    flex: 1,
+    paddingBottom: 32,
+  },
+  flag: {
+    width: 64,
+    height: 64,
   },
   row: {
-    flexDirection: "row"
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+  },
+  spotify: {
+    marginVertical: 20,
+    gap: 14,
   },
 })
 
@@ -26,7 +33,7 @@ const DetailsComponent: FunctionComponent = () => {
   const {data: participant, error, isLoading} = useGetParticipantByCountryName(country)
 
   if (isLoading) {
-    return <Loading loadingText="Loading Participant" />
+    return <Loading loadingText="participant" />
   }
 
   if (error) {
@@ -38,12 +45,12 @@ const DetailsComponent: FunctionComponent = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.content}>
       <StyledTitle>Details about: {participant.country}</StyledTitle>
-      <Image source={{uri: participant.flag_url || ''}} style={styles.flag} />
+      {participant.flag_url && <Image source={{uri: participant.flag_url}} style={styles.flag} />}
       <View>
         <View style={styles.row}>
-          <StyledText>👨‍🎤 Artist: </StyledText>
+          <StyledText>🎤 Artist: </StyledText>
           <StyledText>{participant.artist}</StyledText>
         </View>
         <View style={styles.row}>
@@ -62,12 +69,13 @@ const DetailsComponent: FunctionComponent = () => {
           <StyledText>🎸 Genre: </StyledText>
           <StyledText>{participant.genre}</StyledText>
         </View>
-        <View>
+        <View style={styles.spotify}>
           <StyledText>🎧 Listen to the song via Spotify:</StyledText>
           <LinkButton url={participant.spotify_url} songName={participant.song} />
         </View>
       </View>
-    </View>
+      <FullWidthImage source={esc2026stage} />
+    </ScrollView>
   )
 }
 

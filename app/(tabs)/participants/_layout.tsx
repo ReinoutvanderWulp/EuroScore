@@ -11,7 +11,7 @@ const ParticipantsLayout: FunctionComponent = () => {
         headerTintColor: '#ffffff',
         headerBackground: () => <GradientStyle topPosition={true} />,
         headerRight: () => <LogoutButton />,
-        contentStyle: {backgroundColor: '#ffffff'},
+        contentStyle: {backgroundColor: '#ffffff', paddingHorizontal: 16},
       }}>
       <Stack.Screen name="index" options={{title: 'Participants'}} />
       <Stack.Screen name="[country]" options={{title: 'Details', headerShown: true}} />

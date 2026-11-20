@@ -8,7 +8,7 @@ const TabsLayout: FunctionComponent = () => {
   return (
     <Tabs
       screenOptions={{
-        sceneStyle: {backgroundColor: '#ffffff'},
+        sceneStyle: {backgroundColor: '#ffffff', paddingHorizontal: 16},
         headerTitleStyle: {fontWeight: 'bold'},
         headerTintColor: '#ffffff',
         headerBackground: () => <GradientStyle topPosition={true} />,

@@ -2,7 +2,7 @@ import {FunctionComponent} from 'react'
 import {Alert, StyleSheet, View} from 'react-native'
 import {LegendList} from '@legendapp/list'
 import Loading from '@/components/Loading'
-import RankingItem from '@/components/RankingItem'
+import RankingItem, {RANKING_ROW_HEIGHT} from '@/components/RankingItem'
 import StyledText from '@/components/StyledText'
 import {useGetParticipants} from '@/data/participants'
 import {POINTS_ALREADY_ASSIGNED, useGetRanking, useRefreshData, useUpdateScore} from '@/data/ranking'
@@ -11,6 +11,9 @@ import {Points} from '@/types/Points'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  listContent: {
+    paddingBottom: 24,
   },
 })
 
@@ -62,7 +65,8 @@ const RankingComponent: FunctionComponent = () => {
       <LegendList
         style={styles.container}
         data={sortedParticipants}
-        estimatedItemSize={50}
+        estimatedItemSize={RANKING_ROW_HEIGHT}
+        contentContainerStyle={styles.listContent}
         renderItem={({item: participant}) => (
           <RankingItem
             participant={participant}
