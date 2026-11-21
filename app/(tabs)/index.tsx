@@ -5,9 +5,11 @@ import FullWidthImage from '@/components/FullWidthImage'
 import ShowCountdowns from '@/components/ShowCountdowns'
 import StyledTitle from '@/components/StyledTitle'
 import {logo, logoBurgas} from '@/utils/images'
+import { SCREEN_PADDING } from '@/utils/layout'
 
 const styles = StyleSheet.create({
   content: {
+    paddingHorizontal: SCREEN_PADDING,
     paddingBottom: 24,
   },
 })

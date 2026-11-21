@@ -12,8 +12,8 @@ interface RankingItemProps {
 }
 
 // Vaste hoogtes: zo klopt de schatting van de lijst exact (zie RankingComponent)
-export const RANKING_ROW_HEIGHT = 64
-const PICKER_HEIGHT = 48
+export const RANKING_ROW_HEIGHT = 72
+const PICKER_HEIGHT = 56
 
 // Eén kleur voor de score en het pijltje
 const SCORE_COLOR = '#000000'

@@ -3,11 +3,13 @@ import {FunctionComponent, Suspense, useEffect} from 'react'
 import ParticipantComponent from "@/components/ParticipantComponent";
 import Loading from "@/components/Loading";
 import StyledTitle from '@/components/StyledTitle'
+import { SCREEN_PADDING } from '@/utils/layout';
 
 const Index: FunctionComponent = () => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
+      paddingHorizontal: SCREEN_PADDING,
     }
   })
 

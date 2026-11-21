@@ -7,6 +7,7 @@ import EurovisionNotifications from '@/components/EurovisionNotifications'
 import {GluestackUIProvider} from '@/components/ui/gluestack-ui-provider'
 import {AuthProvider, useAuth} from '@/context/AuthContext'
 import '@/global.css'
+import AppHeader from '@/components/AppHeader'
 
 const queryClient = new QueryClient()
 
@@ -38,6 +39,21 @@ const RootNavigator: FunctionComponent = () => {
     <Stack screenOptions={{headerShown: false, contentStyle: {backgroundColor: '#ffffff'}}}>
       <Stack.Protected guard={!!user}>
         <Stack.Screen name="(tabs)" />
+                <Stack.Screen
+          name="delete-account"
+          options={{
+            headerShown: true,
+            title: 'Delete account',
+            presentation: 'modal',
+            header: ({options, route, back, navigation}) => (
+              <AppHeader
+                title={options.title ?? route.name}
+                onBack={back ? () => navigation.goBack() : undefined}
+                showAccountButton={false}
+              />
+            ),
+          }}
+        />
       </Stack.Protected>
       <Stack.Protected guard={!user}>
         <Stack.Screen name="login" />
