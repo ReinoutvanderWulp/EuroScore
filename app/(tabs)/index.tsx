@@ -6,6 +6,7 @@ import ShowCountdowns from '@/components/ShowCountdowns'
 import StyledTitle from '@/components/StyledTitle'
 import {logo, logoBurgas} from '@/utils/images'
 import { SCREEN_PADDING } from '@/utils/layout'
+import InstagramFeed from '@/components/InstagramFeed'
 
 const styles = StyleSheet.create({
   content: {
@@ -27,6 +28,9 @@ const Index: FunctionComponent = () => {
           Join us in 2027 on 11, 13 and 15 may! ✨ Live from Burgas in our host country Bulgaria! 🇧🇬
         </StyledTitle>
         <FullWidthImage source={logoBurgas} />
+      </View>
+      <View>
+        <InstagramFeed/>
       </View>
       <StatusBar style="auto" />
     </ScrollView>

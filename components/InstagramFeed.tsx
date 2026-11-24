@@ -1,7 +1,7 @@
 import {FunctionComponent, useState} from 'react'
-import {Linking, Pressable, StyleSheet, View} from 'react-native'
+import {Linking, StyleSheet, View} from 'react-native'
 import {WebView, type WebViewMessageEvent} from 'react-native-webview'
-import StyledText from '@/components/StyledText'
+import GradientButton from '@/components/GradientButton'
 import StyledTitle from '@/components/StyledTitle'
 
 // Controleer of dit het officiële account is
@@ -47,16 +47,8 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginBottom: 24,
   },
-  button: {
+  buttonWrapper: {
     marginTop: 12,
-    backgroundColor: '#008000',
-    borderRadius: 24,
-    paddingVertical: 14,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: '#ffffff',
-    fontWeight: 'bold',
   },
 })
 
@@ -86,7 +78,7 @@ const InstagramFeed: FunctionComponent = () => {
 
   return (
     <View style={styles.container}>
-      <StyledTitle>Follow Eurovision on Instagram</StyledTitle>
+      <StyledTitle>Explore the Eurovision Instagram feed!</StyledTitle>
       <View style={{height}}>
         <WebView
           originWhitelist={['*']}
@@ -99,12 +91,13 @@ const InstagramFeed: FunctionComponent = () => {
           domStorageEnabled
         />
       </View>
-      <Pressable
-        onPress={() => void Linking.openURL(PROFILE_URL)}
-        style={styles.button}
-        accessibilityRole="link">
-        <StyledText style={styles.buttonText}>Open @{INSTAGRAM_USERNAME} on Instagram</StyledText>
-      </Pressable>
+      <View style={styles.buttonWrapper}>
+        <GradientButton
+          label={`Open @${INSTAGRAM_USERNAME} on Instagram`}
+          accessibilityRole="link"
+          onPress={() => void Linking.openURL(PROFILE_URL)}
+        />
+      </View>
     </View>
   )
 }
