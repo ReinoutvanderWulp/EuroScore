@@ -1,11 +1,12 @@
 import {FunctionComponent} from 'react'
-import {Alert, StyleSheet, View} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import {LegendList} from '@legendapp/list'
 import Loading from '@/components/Loading'
 import RankingItem, {RANKING_ROW_HEIGHT} from '@/components/RankingItem'
 import StyledText from '@/components/StyledText'
 import {useGetParticipants} from '@/data/participants'
 import {POINTS_ALREADY_ASSIGNED, useGetRanking, useRefreshData, useUpdateScore} from '@/data/ranking'
+import {useAppToast} from '@/hooks/useAppToast'
 import {Points} from '@/types/Points'
 
 const styles = StyleSheet.create({
@@ -22,6 +23,7 @@ const RankingComponent: FunctionComponent = () => {
   const {data: rankings, isLoading: rankingsLoading} = useGetRanking()
   const updateScore = useUpdateScore()
   const refreshData = useRefreshData()
+  const toast = useAppToast()
 
   if (participantsLoading || rankingsLoading) {
     return <Loading loadingText="scoreboard" />
@@ -33,7 +35,7 @@ const RankingComponent: FunctionComponent = () => {
     const isUsed = rankings.some(r => r.points === points && r.country_id !== countryId)
 
     if (points !== 0 && isUsed) {
-      Alert.alert('Points already assigned', "You've already given this score to another country!")
+      toast.warning('Points already assigned', "You've already given this score to another country!")
       refreshData()
       return
     }
@@ -41,12 +43,12 @@ const RankingComponent: FunctionComponent = () => {
     updateScore.mutate(
       {countryId, points},
       {
-        // Bij een fout zet de hook de oude waarde terug, zodat de Picker meebeweegt
+        // Bij een fout zet de hook de oude waarde terug, zodat de keuze meebeweegt
         onError: error => {
           if (error.message === POINTS_ALREADY_ASSIGNED) {
-            Alert.alert('Points already assigned', "You've already given this score to another country!")
+            toast.warning('Points already assigned', "You've already given this score to another country!")
           } else {
-            Alert.alert('Could not save your score', 'Please check your connection and try again.')
+            toast.error('Could not save your score', 'Please check your connection and try again.')
           }
         },
       },
@@ -64,9 +66,9 @@ const RankingComponent: FunctionComponent = () => {
     <View style={styles.container}>
       <LegendList
         style={styles.container}
+        contentContainerStyle={styles.listContent}
         data={sortedParticipants}
         estimatedItemSize={RANKING_ROW_HEIGHT}
-        contentContainerStyle={styles.listContent}
         renderItem={({item: participant}) => (
           <RankingItem
             participant={participant}

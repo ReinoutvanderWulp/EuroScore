@@ -1,7 +1,7 @@
 import {FunctionComponent, ReactNode} from 'react'
 import {Pressable, StyleSheet} from 'react-native'
 import {LinearGradient} from 'expo-linear-gradient'
-import StyledText from '@/components/StyledText'
+import {Text} from '@/components/ui/text'
 
 interface GradientButtonProps {
   label: string
@@ -35,10 +35,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     borderRadius: 24,
   },
-  label: {
-    color: '#ffffff',
-    fontWeight: 'bold',
-  },
 })
 
 const GradientButton: FunctionComponent<GradientButtonProps> = ({
@@ -59,7 +55,9 @@ const GradientButton: FunctionComponent<GradientButtonProps> = ({
         end={{x: 1, y: 0}}
         style={styles.gradient}>
         {icon}
-        <StyledText style={styles.label}>{label}</StyledText>
+        <Text size="md" className="font-bold text-white">
+          {label}
+        </Text>
       </LinearGradient>
     </Pressable>
   )

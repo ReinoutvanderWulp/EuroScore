@@ -1,31 +1,20 @@
 import {FunctionComponent, useState} from 'react'
-import {Pressable, StyleSheet, TextInput, View} from 'react-native'
+import {StyleSheet, View} from 'react-native'
 import {LegendList} from '@legendapp/list'
 import {Search, X} from 'lucide-react-native'
+import InstagramFeed from '@/components/InstagramFeed'
 import Loading from '@/components/Loading'
-import ParticipantItem from '@/components/ParticipantItem'
+import ParticipantItem, {PARTICIPANT_ROW_HEIGHT} from '@/components/ParticipantItem'
 import StyledText from '@/components/StyledText'
+import {Input, InputField, InputIcon, InputSlot} from '@/components/ui/input'
 import {useGetParticipants} from '@/data/participants'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  searchBox: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    borderRadius: 15,
-    borderWidth: 1,
-    borderColor: '#cccccc',
-    paddingHorizontal: 12,
-    marginBottom: 8,
-  },
-  textInput: {
-    flex: 1,
-    paddingVertical: 10,
-    fontSize: 16,
-    color: '#000000',
+  listContent: {
+    paddingBottom: 24,
   },
 })
 
@@ -42,30 +31,34 @@ const ParticipantComponent: FunctionComponent = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.searchBox}>
-        <Search size={20} color="#555555" />
-        <TextInput
-          style={styles.textInput}
+      <Input variant="rounded" size="lg" className="mb-3">
+        <InputSlot className="pl-4">
+          <InputIcon as={Search} className="text-black" />
+        </InputSlot>
+        <InputField
+          className="text-black"
           placeholder="Search for a country"
-          placeholderTextColor="#888888"
           value={search}
           onChangeText={setSearch}
+          autoCorrect={false}
         />
         {search.length > 0 && (
-          <Pressable onPress={() => setSearch('')} hitSlop={8} accessibilityLabel="Clear search">
-            <X size={20} color="#555555" />
-          </Pressable>
+          <InputSlot className="pr-4" onPress={() => setSearch('')}>
+            <InputIcon as={X} className="text-black" />
+          </InputSlot>
         )}
-      </View>
+      </Input>
       <LegendList
         style={styles.container}
+        contentContainerStyle={styles.listContent}
         data={filteredParticipants}
-        estimatedItemSize={56}
+        estimatedItemSize={PARTICIPANT_ROW_HEIGHT}
         renderItem={({item: participant}) => <ParticipantItem participant={participant} />}
         keyExtractor={participant => participant.id}
         recycleItems={true}
         keyboardShouldPersistTaps="handled"
         ListEmptyComponent={<StyledText>No results were found for: {searchValue}</StyledText>}
+        ListFooterComponent={<InstagramFeed />}
       />
     </View>
   )

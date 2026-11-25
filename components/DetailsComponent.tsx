@@ -1,32 +1,46 @@
 import {FunctionComponent} from 'react'
-import {Image, ScrollView, StyleSheet, View} from 'react-native'
+import {Image, ScrollView, StyleSheet} from 'react-native'
 import {useLocalSearchParams} from 'expo-router'
-import {useGetParticipantByCountryName} from '@/data/participants'
 import FullWidthImage from '@/components/FullWidthImage'
 import LinkButton from '@/components/LinkButton'
 import Loading from '@/components/Loading'
 import StyledText from '@/components/StyledText'
-import StyledTitle from '@/components/StyledTitle'
+import {Badge, BadgeText} from '@/components/ui/badge'
+import {Card} from '@/components/ui/card'
+import {Divider} from '@/components/ui/divider'
+import {Heading} from '@/components/ui/heading'
+import {HStack} from '@/components/ui/hstack'
+import {Text} from '@/components/ui/text'
+import {VStack} from '@/components/ui/vstack'
+import {useGetParticipantByCountryName} from '@/data/participants'
 import {esc2026stage} from '@/utils/images'
 
 const styles = StyleSheet.create({
   content: {
-    gap: 15,
     paddingBottom: 32,
   },
   flag: {
-    width: 64,
-    height: 64,
-  },
-  row: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-  },
-  spotify: {
-    marginVertical: 20,
-    gap: 14,
+    width: 72,
+    height: 72,
+    borderRadius: 12,
   },
 })
+
+interface InfoRowProps {
+  label: string
+  value: string
+}
+
+const InfoRow: FunctionComponent<InfoRowProps> = ({label, value}) => (
+  <VStack space="xs">
+    <Text size="sm" className="text-black">
+      {label}
+    </Text>
+    <Heading size="md" className="text-black">
+      {value}
+    </Heading>
+  </VStack>
+)
 
 const DetailsComponent: FunctionComponent = () => {
   const {country} = useLocalSearchParams<{country: string}>()
@@ -46,35 +60,54 @@ const DetailsComponent: FunctionComponent = () => {
 
   return (
     <ScrollView contentContainerStyle={styles.content}>
-      <StyledTitle>Details about: {participant.country}</StyledTitle>
-      {participant.flag_url && <Image source={{uri: participant.flag_url}} style={styles.flag} />}
-      <View>
-        <View style={styles.row}>
-          <StyledText>🎤 Artist: </StyledText>
-          <StyledText>{participant.artist}</StyledText>
-        </View>
-        <View style={styles.row}>
-          <StyledText>🎵 Song: </StyledText>
-          <StyledText>{participant.song}</StyledText>
-        </View>
-        <View style={styles.row}>
-          <StyledText>🔄 Previous participation: </StyledText>
-          <StyledText>{participant.returning_artist ? '✅ Yes' : '❌ No'}</StyledText>
-        </View>
-        <View style={styles.row}>
-          <StyledText>🏆 Number of victories: </StyledText>
-          <StyledText>{participant.country_wins}</StyledText>
-        </View>
-        <View style={styles.row}>
-          <StyledText>🎸 Genre: </StyledText>
-          <StyledText>{participant.genre}</StyledText>
-        </View>
-        <View style={styles.spotify}>
-          <StyledText>🎧 Listen to the song via Spotify:</StyledText>
+      <VStack space="lg" className="pt-4">
+        <HStack space="lg" className="items-center">
+          {participant.flag_url && (
+            <Image source={{uri: participant.flag_url}} style={styles.flag} resizeMode="contain" />
+          )}
+          <VStack className="flex-1">
+            <Heading size="2xl" className="text-black" numberOfLines={2}>
+              {participant.country}
+            </Heading>
+            <Text size="md" className="text-black">
+              {participant.artist}
+            </Text>
+          </VStack>
+        </HStack>
+
+        <HStack space="sm" className="flex-wrap">
+          <Badge action="muted" variant="outline" size="lg">
+            <BadgeText className="text-black">🎸 {participant.genre}</BadgeText>
+          </Badge>
+          <Badge action="muted" variant="outline" size="lg">
+            <BadgeText className="text-black">
+              🏆 {participant.country_wins} {participant.country_wins === 1 ? 'victory' : 'victories'}
+            </BadgeText>
+          </Badge>
+          <Badge action="muted" variant="outline" size="lg">
+            <BadgeText className="text-black">
+              {participant.returning_artist ? '🔄 Returning artist' : '🆕 New artist'}
+            </BadgeText>
+          </Badge>
+        </HStack>
+
+        <Card variant="elevated" size="lg" className="rounded-2xl">
+          <VStack space="md">
+            <InfoRow label="🎤 Artist" value={participant.artist} />
+            <Divider />
+            <InfoRow label="🎵 Song" value={participant.song} />
+          </VStack>
+        </Card>
+
+        <VStack space="sm">
+          <Heading size="sm" className="text-black">
+            🎧 Listen to the song via Spotify
+          </Heading>
           <LinkButton url={participant.spotify_url} songName={participant.song} />
-        </View>
-      </View>
-      <FullWidthImage source={esc2026stage} />
+        </VStack>
+
+        <FullWidthImage source={esc2026stage} />
+      </VStack>
     </ScrollView>
   )
 }

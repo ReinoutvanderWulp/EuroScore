@@ -1,20 +1,18 @@
 import {FunctionComponent, ReactNode} from 'react'
-import {StyleProp, StyleSheet, Text, TextStyle} from 'react-native'
+import {StyleProp, TextStyle} from 'react-native'
+import {Text} from '@/components/ui/text'
 
 interface StyledTextProps {
   children?: ReactNode
   style?: StyleProp<TextStyle>
 }
 
-const styles = StyleSheet.create({
-  text: {
-    color: '#000000',
-    fontSize: 16,
-  },
-})
-
 const StyledText: FunctionComponent<StyledTextProps> = ({children, style}) => {
-  return <Text style={[styles.text, style]}>{children}</Text>
+  return (
+    <Text size="md" className="text-black" style={style}>
+      {children}
+    </Text>
+  )
 }
 
 export default StyledText

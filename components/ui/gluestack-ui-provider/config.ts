@@ -3,18 +3,18 @@ import { vars } from 'nativewind';
 
 export const config = {
   light: vars({
-    '--color-primary-0': '179 179 179',
-    '--color-primary-50': '153 153 153',
-    '--color-primary-100': '128 128 128',
-    '--color-primary-200': '115 115 115',
-    '--color-primary-300': '102 102 102',
-    '--color-primary-400': '82 82 82',
-    '--color-primary-500': '51 51 51',
-    '--color-primary-600': '41 41 41',
-    '--color-primary-700': '31 31 31',
-    '--color-primary-800': '13 13 13',
-    '--color-primary-900': '10 10 10',
-    '--color-primary-950': '8 8 8',
+    '--color-primary-0':   '240 255 240',
+    '--color-primary-50':  '220 245 220',
+    '--color-primary-100': '187 232 187',
+    '--color-primary-200': '146 214 146',
+    '--color-primary-300': '102 194 102',
+    '--color-primary-400': '51 160 51',
+    '--color-primary-500': '0 128 0',
+    '--color-primary-600': '0 110 0',
+    '--color-primary-700': '0 92 0',
+    '--color-primary-800': '0 72 0',
+    '--color-primary-900': '0 54 0',
+    '--color-primary-950': '0 36 0',
 
     /* Secondary  */
     '--color-secondary-0': '253 253 253',
@@ -108,11 +108,11 @@ export const config = {
     '--color-typography-300': '212 212 212',
     '--color-typography-400': '163 163 163',
     '--color-typography-500': '140 140 140',
-    '--color-typography-600': '115 115 115',
-    '--color-typography-700': '82 82 82',
-    '--color-typography-800': '64 64 64',
-    '--color-typography-900': '38 38 39',
-    '--color-typography-950': '23 23 23',
+    '--color-typography-600': '0 0 0',
+    '--color-typography-700': '0 0 0',
+    '--color-typography-800': '0 0 0',
+    '--color-typography-900': '0 0 0',
+    '--color-typography-950': '0 0 0',
 
     /* Outline */
     '--color-outline-0': '253 254 254',

@@ -1,8 +1,12 @@
 import {FunctionComponent, useEffect, useState} from 'react'
 import {differenceInHours, differenceInSeconds} from 'date-fns'
-import {View, StyleSheet} from 'react-native'
-import StyledTitle from '@/components/StyledTitle'
 import StyledText from '@/components/StyledText'
+import {Badge, BadgeText} from '@/components/ui/badge'
+import {Card} from '@/components/ui/card'
+import {Heading} from '@/components/ui/heading'
+import {HStack} from '@/components/ui/hstack'
+import {Text} from '@/components/ui/text'
+import {VStack} from '@/components/ui/vstack'
 
 interface ShowTimerProps {
   title: string
@@ -10,13 +14,23 @@ interface ShowTimerProps {
   showDuration: number
 }
 
-const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDuration}) => {
-  const styles = StyleSheet.create({
-    timer: {
-      marginBottom: 12,
-    }
-  })
+interface TimeTileProps {
+  value: number
+  label: string
+}
 
+const TimeTile: FunctionComponent<TimeTileProps> = ({value, label}) => (
+  <VStack className="flex-1 items-center rounded-2xl border border-outline-200 bg-background-50 py-3">
+    <Heading size="2xl" className="text-black">
+      {String(value).padStart(2, '0')}
+    </Heading>
+    <Text size="xs" className="uppercase text-black">
+      {label}
+    </Text>
+  </VStack>
+)
+
+const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDuration}) => {
   const [currentTime, setCurrentTime] = useState(() => new Date())
 
   useEffect(() => {
@@ -38,10 +52,17 @@ const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDur
     const seconds = Math.floor(timeLeft % 60)
 
     return (
-      <View style={styles.timer}>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledText>{`${days} days, ${hours} hours, ${minutes} minutes, ${seconds} seconds`}</StyledText>
-      </View>
+      <VStack space="md" className="mb-3 mt-4">
+        <Heading size="md" className="text-black">
+          {title}
+        </Heading>
+        <HStack space="sm">
+          <TimeTile value={days} label="days" />
+          <TimeTile value={hours} label="hours" />
+          <TimeTile value={minutes} label="min" />
+          <TimeTile value={seconds} label="sec" />
+        </HStack>
+      </VStack>
     )
   }
 
@@ -49,18 +70,31 @@ const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDur
 
   if (hoursSinceStart < showDuration) {
     return (
-      <View style={styles.timer}>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledText>{title} has begun!</StyledText>
-      </View>
+      <Card variant="elevated" className="mb-3 mt-4 rounded-2xl">
+        <VStack space="sm">
+          <Heading size="md" className="text-black">
+            {title}
+          </Heading>
+          <HStack space="sm" className="items-center">
+            <Badge action="error" variant="solid">
+              <BadgeText>LIVE NOW</BadgeText>
+            </Badge>
+            <StyledText>The show has begun! 🎉</StyledText>
+          </HStack>
+        </VStack>
+      </Card>
     )
   }
 
   return (
-    <View style={styles.timer}>
-      <StyledTitle>{title}</StyledTitle>
-      <StyledText>You can rewatch the event on Eurovision's Youtube!</StyledText>
-    </View>
+    <Card variant="elevated" className="mb-3 mt-4 rounded-2xl">
+      <VStack space="sm">
+        <Heading size="md" className="text-black">
+          {title}
+        </Heading>
+        <StyledText>You can rewatch the event on Eurovision's Youtube!</StyledText>
+      </VStack>
+    </Card>
   )
 }
 

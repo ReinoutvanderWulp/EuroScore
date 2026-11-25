@@ -13,7 +13,7 @@ import {
   PressableProps,
   ViewStyle,
 } from 'react-native';
-import { UIIcon } from '@gluestack-ui/core/icon/creator';
+import { PrimitiveIcon, UIIcon } from '@gluestack-ui/core/icon/creator';
 import { tva } from '@gluestack-ui/utils/nativewind-utils';
 import type { VariantProps } from '@gluestack-ui/utils/nativewind-utils';
 import { cssInterop } from 'nativewind';
@@ -62,7 +62,7 @@ export const UIActionsheet = createActionsheet({
 
 cssInterop(UIActionsheet, { className: 'style' });
 cssInterop(UIActionsheet.Content, { className: 'style' });
-cssInterop(UIActionsheet.Item, { className: 'style' });
+cssInterop(ItemWrapper, { className: 'style' });
 cssInterop(UIActionsheet.ItemText, { className: 'style' });
 cssInterop(UIActionsheet.DragIndicator, { className: 'style' });
 cssInterop(UIActionsheet.DragIndicatorWrapper, { className: 'style' });
@@ -90,7 +90,7 @@ cssInterop(UIActionsheet.FlatList, {
 cssInterop(UIActionsheet.SectionList, { className: 'style' });
 cssInterop(UIActionsheet.SectionHeaderText, { className: 'style' });
 
-cssInterop(UIIcon, {
+cssInterop(PrimitiveIcon, {
   className: {
     target: 'style',
     nativeStyleToProp: {
@@ -106,15 +106,15 @@ cssInterop(UIIcon, {
 const actionsheetStyle = tva({ base: 'w-full h-full web:pointer-events-none' });
 
 const actionsheetContentStyle = tva({
-  base: 'items-center rounded-t-lg p-4 bg-background web:pointer-events-auto web:select-none border-t border-border dark:border-border/10 max-h-[80vh] pb-safe',
+  base: 'items-center rounded-tl-3xl rounded-tr-3xl p-5 pt-2 bg-background-0 web:pointer-events-auto web:select-none shadow-hard-5 border border-b-0 border-outline-100 pb-safe',
 });
 
 const actionsheetItemStyle = tva({
-  base: 'w-full flex-row items-center p-3 rounded-sm data-[disabled=true]:opacity-40 data-[disabled=true]:web:pointer-events-auto data-[disabled=true]:web:cursor-not-allowed data-[hover=true]:bg-accent data-[active=true]:bg-accent data-[focus=true]:bg-accent web:data-[focus-visible=true]:bg-accent gap-2',
+  base: 'w-full flex-row items-center p-3 rounded-sm data-[disabled=true]:opacity-40 data-[disabled=true]:web:pointer-events-auto data-[disabled=true]:web:cursor-not-allowed hover:bg-background-50 active:bg-background-100 data-[focus=true]:bg-background-100 web:data-[focus-visible=true]:bg-background-100 web:data-[focus-visible=true]:outline-indicator-primary gap-2',
 });
 
 const actionsheetItemTextStyle = tva({
-  base: 'text-foreground font-normal text-sm',
+  base: 'text-typography-700 font-normal font-body',
   variants: {
     isTruncated: {
       true: '',
@@ -128,11 +128,24 @@ const actionsheetItemTextStyle = tva({
     strikeThrough: {
       true: 'line-through',
     },
+    size: {
+      '2xs': 'text-2xs',
+      'xs': 'text-xs',
+      'sm': 'text-sm',
+      'md': 'text-base',
+      'lg': 'text-lg',
+      'xl': 'text-xl',
+      '2xl': 'text-2xl',
+      '3xl': 'text-3xl',
+      '4xl': 'text-4xl',
+      '5xl': 'text-5xl',
+      '6xl': 'text-6xl',
+    },
   },
 });
 
 const actionsheetDragIndicatorStyle = tva({
-  base: 'w-[100px] h-2 bg-muted rounded-full',
+  base: 'w-16 h-1 bg-background-400 rounded-full',
 });
 
 const actionsheetDragIndicatorWrapperStyle = tva({
@@ -140,7 +153,7 @@ const actionsheetDragIndicatorWrapperStyle = tva({
 });
 
 const actionsheetBackdropStyle = tva({
-  base: 'absolute left-0 top-0 right-0 bottom-0 bg-black/50 web:cursor-default web:pointer-events-auto',
+  base: 'absolute left-0 top-0 right-0 bottom-0 bg-background-dark web:cursor-default web:pointer-events-auto',
 });
 
 const actionsheetScrollViewStyle = tva({
@@ -160,7 +173,7 @@ const actionsheetSectionListStyle = tva({
 });
 
 const actionsheetSectionHeaderTextStyle = tva({
-  base: 'leading-5 font-semibold my-0 text-muted-foreground p-3 uppercase text-xs',
+  base: 'leading-5 font-bold font-heading my-0 text-typography-500 p-3 uppercase',
   variants: {
     isTruncated: {
       true: '',
@@ -174,6 +187,18 @@ const actionsheetSectionHeaderTextStyle = tva({
     strikeThrough: {
       true: 'line-through',
     },
+    size: {
+      '5xl': 'text-5xl',
+      '4xl': 'text-4xl',
+      '3xl': 'text-3xl',
+      '2xl': 'text-2xl',
+      'xl': 'text-xl',
+      'lg': 'text-lg',
+      'md': 'text-base',
+      'sm': 'text-sm',
+      'xs': 'text-xs',
+    },
+
     sub: {
       true: 'text-xs',
     },
@@ -181,13 +206,26 @@ const actionsheetSectionHeaderTextStyle = tva({
       true: 'italic',
     },
     highlight: {
-      true: 'bg-yellow-500',
+      true: 'bg-yellow500',
     },
+  },
+  defaultVariants: {
+    size: 'xs',
   },
 });
 
 const actionsheetIconStyle = tva({
-  base: 'text-foreground fill-none h-4 w-4',
+  base: 'text-background-500 fill-none',
+  variants: {
+    size: {
+      '2xs': 'h-3 w-3',
+      'xs': 'h-3.5 w-3.5',
+      'sm': 'h-4 w-4',
+      'md': 'w-[18px] h-[18px]',
+      'lg': 'h-5 w-5',
+      'xl': 'h-6 w-6',
+    },
+  },
 });
 
 type IActionsheetProps = VariantProps<typeof actionsheetStyle> &
@@ -299,7 +337,15 @@ const ActionsheetItemText = React.forwardRef<
   React.ComponentRef<typeof UIActionsheet.ItemText>,
   IActionsheetItemTextProps
 >(function ActionsheetItemText(
-  { isTruncated, bold, underline, strikeThrough, className, ...props },
+  {
+    isTruncated,
+    bold,
+    underline,
+    strikeThrough,
+    size = 'sm',
+    className,
+    ...props
+  },
   ref
 ) {
   return (
@@ -310,6 +356,7 @@ const ActionsheetItemText = React.forwardRef<
         bold: Boolean(bold),
         underline: Boolean(underline),
         strikeThrough: Boolean(strikeThrough),
+        size,
       })}
       ref={ref}
       {...props}
@@ -357,14 +404,10 @@ const ActionsheetBackdrop = React.forwardRef<
         opacity: 0,
       }}
       animate={{
-        opacity: 1,
+        opacity: 0.5,
       }}
       exit={{
         opacity: 0,
-      }}
-      transition={{
-        type: 'timing',
-        duration: 200,
       }}
       {...props}
       className={actionsheetBackdropStyle({
@@ -445,6 +488,7 @@ const ActionsheetSectionHeaderText = React.forwardRef<
     bold,
     underline,
     strikeThrough,
+    size,
     sub,
     italic,
     highlight,
@@ -460,6 +504,7 @@ const ActionsheetSectionHeaderText = React.forwardRef<
         bold: Boolean(bold),
         underline: Boolean(underline),
         strikeThrough: Boolean(strikeThrough),
+        size,
         sub: Boolean(sub),
         italic: Boolean(italic),
         highlight: Boolean(highlight),
@@ -473,21 +518,34 @@ const ActionsheetSectionHeaderText = React.forwardRef<
 const ActionsheetIcon = React.forwardRef<
   React.ComponentRef<typeof UIActionsheet.Icon>,
   IActionsheetIconProps
->(function ActionsheetIcon({ className, height, width, ...props }, ref) {
-  if (typeof height === 'number' || typeof width === 'number') {
+>(function ActionsheetIcon({ className, size = 'sm', ...props }, ref) {
+  if (typeof size === 'number') {
     return (
       <UIActionsheet.Icon
         ref={ref}
         {...props}
-        height={height}
-        width={width}
+        className={actionsheetIconStyle({ class: className })}
+        size={size}
+      />
+    );
+  } else if (
+    (props.height !== undefined || props.width !== undefined) &&
+    size === undefined
+  ) {
+    return (
+      <UIActionsheet.Icon
+        ref={ref}
+        {...props}
         className={actionsheetIconStyle({ class: className })}
       />
     );
   }
   return (
     <UIActionsheet.Icon
-      className={actionsheetIconStyle({ class: className })}
+      className={actionsheetIconStyle({
+        class: className,
+        size,
+      })}
       ref={ref}
       {...props}
     />

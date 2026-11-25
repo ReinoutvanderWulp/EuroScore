@@ -1,8 +1,19 @@
 import {FunctionComponent, useState} from 'react'
-import {ActivityIndicator, KeyboardAvoidingView, Platform, Pressable, StyleSheet, TextInput, View} from 'react-native'
+import {KeyboardAvoidingView, Platform, ScrollView, StyleSheet} from 'react-native'
 import {SafeAreaView} from 'react-native-safe-area-context'
-import StyledText from '@/components/StyledText'
-import StyledTitle from '@/components/StyledTitle'
+import {Eye, EyeOff} from 'lucide-react-native'
+import {Button, ButtonSpinner, ButtonText} from '@/components/ui/button'
+import {
+  FormControl,
+  FormControlError,
+  FormControlErrorText,
+  FormControlLabel,
+  FormControlLabelText,
+} from '@/components/ui/form-control'
+import {Heading} from '@/components/ui/heading'
+import {Input, InputField, InputIcon, InputSlot} from '@/components/ui/input'
+import {Text} from '@/components/ui/text'
+import {VStack} from '@/components/ui/vstack'
 import {useAuth} from '@/context/AuthContext'
 
 const styles = StyleSheet.create({
@@ -10,40 +21,13 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#ffffff',
   },
-  container: {
+  flex: {
     flex: 1,
+  },
+  content: {
+    flexGrow: 1,
     justifyContent: 'center',
     padding: 24,
-    gap: 12,
-  },
-  input: {
-    borderWidth: 1,
-    borderColor: '#cccccc',
-    borderRadius: 12,
-    paddingHorizontal: 14,
-    paddingVertical: 12,
-    fontSize: 16,
-    color: '#000000',
-  },
-  button: {
-    backgroundColor: '#008000',
-    borderRadius: 12,
-    paddingVertical: 14,
-    alignItems: 'center',
-  },
-  buttonDisabled: {
-    opacity: 0.6,
-  },
-  buttonText: {
-    color: '#ffffff',
-    fontWeight: 'bold',
-  },
-  error: {
-    color: '#b00020',
-  },
-  switchText: {
-    textAlign: 'center',
-    color: '#008000',
   },
 })
 
@@ -73,6 +57,7 @@ const Login: FunctionComponent = () => {
   const {signIn, signUp, resetPassword} = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [isSignUp, setIsSignUp] = useState(false)
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -119,65 +104,93 @@ const Login: FunctionComponent = () => {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <KeyboardAvoidingView
-        style={styles.container}
-        behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-        <StyledTitle>{isSignUp ? 'Create your EuroScore account' : 'Welcome back to EuroScore'}</StyledTitle>
+      <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+        <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
+          <VStack space="xl">
+            <VStack space="xs">
+              <Heading size="3xl" className="text-black">
+                EuroScore
+              </Heading>
+              <Text size="md" className="text-black">
+                {isSignUp ? 'Create your account to start scoring.' : 'Welcome back! Sign in to continue.'}
+              </Text>
+            </VStack>
 
-        <TextInput
-          style={styles.input}
-          placeholder="Email"
-          placeholderTextColor="#888888"
-          autoCapitalize="none"
-          autoComplete="email"
-          keyboardType="email-address"
-          value={email}
-          onChangeText={setEmail}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          placeholderTextColor="#888888"
-          secureTextEntry
-          autoCapitalize="none"
-          autoComplete={isSignUp ? 'new-password' : 'current-password'}
-          value={password}
-          onChangeText={setPassword}
-          onSubmitEditing={submit}
-        />
+            <VStack space="lg">
+              <FormControl>
+                <FormControlLabel>
+                  <FormControlLabelText className="text-black">Email</FormControlLabelText>
+                </FormControlLabel>
+                <Input size="lg" className="rounded-xl">
+                  <InputField
+                    className="text-black"
+                    placeholder="you@example.com"
+                    autoCapitalize="none"
+                    autoComplete="email"
+                    keyboardType="email-address"
+                    value={email}
+                    onChangeText={setEmail}
+                  />
+                </Input>
+              </FormControl>
 
-        {error && <StyledText style={styles.error}>{error}</StyledText>}
-        {info && <StyledText>{info}</StyledText>}
+              <FormControl isInvalid={!!error}>
+                <FormControlLabel>
+                  <FormControlLabelText className="text-black">Password</FormControlLabelText>
+                </FormControlLabel>
+                <Input size="lg" className="rounded-xl">
+                  <InputField
+                    className="text-black"
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Password"
+                    autoCapitalize="none"
+                    autoComplete={isSignUp ? 'new-password' : 'current-password'}
+                    value={password}
+                    onChangeText={setPassword}
+                    onSubmitEditing={submit}
+                  />
+                  <InputSlot className="pr-4" onPress={() => setShowPassword(prev => !prev)}>
+                    <InputIcon as={showPassword ? EyeOff : Eye} className="text-black" />
+                  </InputSlot>
+                </Input>
+                <FormControlError>
+                  <FormControlErrorText>{error}</FormControlErrorText>
+                </FormControlError>
+              </FormControl>
 
-        <Pressable
-          style={[styles.button, !canSubmit && styles.buttonDisabled]}
-          disabled={!canSubmit}
-          onPress={submit}>
-          {busy ? (
-            <ActivityIndicator color="#ffffff" />
-          ) : (
-            <StyledText style={styles.buttonText}>{isSignUp ? 'Sign up' : 'Sign in'}</StyledText>
-          )}
-        </Pressable>
+              {info && (
+                <Text size="sm" className="text-black">
+                  {info}
+                </Text>
+              )}
+            </VStack>
 
-        {!isSignUp && (
-          <Pressable onPress={forgotPassword} disabled={busy}>
-            <StyledText style={styles.switchText}>Forgot your password?</StyledText>
-          </Pressable>
-        )}
+            <VStack space="sm">
+              <Button size="lg" className="rounded-full" isDisabled={!canSubmit} onPress={submit}>
+                {busy ? <ButtonSpinner color="#ffffff" /> : <ButtonText>{isSignUp ? 'Sign up' : 'Sign in'}</ButtonText>}
+              </Button>
 
-        <Pressable
-          onPress={() => {
-            setIsSignUp(prev => !prev)
-            setError(null)
-            setInfo(null)
-          }}>
-          <View>
-            <StyledText style={styles.switchText}>
-              {isSignUp ? 'Already have an account? Sign in' : 'No account yet? Sign up'}
-            </StyledText>
-          </View>
-        </Pressable>
+              {!isSignUp && (
+                <Button variant="link" action="secondary" isDisabled={busy} onPress={forgotPassword}>
+                  <ButtonText className="text-black underline">Forgot your password?</ButtonText>
+                </Button>
+              )}
+
+              <Button
+                variant="link"
+                action="secondary"
+                onPress={() => {
+                  setIsSignUp(prev => !prev)
+                  setError(null)
+                  setInfo(null)
+                }}>
+                <ButtonText className="text-black underline">
+                  {isSignUp ? 'Already have an account? Sign in' : 'No account yet? Sign up'}
+                </ButtonText>
+              </Button>
+            </VStack>
+          </VStack>
+        </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
   )
