@@ -1,21 +1,9 @@
 import {FunctionComponent} from 'react'
 import {Image, StyleSheet} from 'react-native'
 import * as Haptics from 'expo-haptics'
-import {ChevronDown} from 'lucide-react-native'
+import ScorePicker from '@/components/ScorePicker'
 import StyledText from '@/components/StyledText'
 import {HStack} from '@/components/ui/hstack'
-import {
-  Select,
-  SelectBackdrop,
-  SelectContent,
-  SelectDragIndicator,
-  SelectDragIndicatorWrapper,
-  SelectIcon,
-  SelectInput,
-  SelectItem,
-  SelectPortal,
-  SelectTrigger,
-} from '@/components/ui/select'
 import {Participant} from '@/interfaces/participants'
 import {Points} from '@/types/Points'
 
@@ -39,12 +27,7 @@ const styles = StyleSheet.create({
   text: {
     flex: 1,
   },
-  selectContent: {
-    maxHeight: 480,
-  },
 })
-
-const pointsOptions: Points[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10, 12]
 
 const RankingItem: FunctionComponent<RankingItemProps> = ({participant, onChangeScore}) => {
   const handleValueChange = (value: Points) => {
@@ -64,26 +47,7 @@ const RankingItem: FunctionComponent<RankingItemProps> = ({participant, onChange
       <StyledText style={styles.text}>
         {participant.country} {participant.points === 12 ? ' ⭐' : ' ☆'}
       </StyledText>
-      <Select
-        selectedValue={String(participant.points)}
-        initialLabel={String(participant.points)}
-        onValueChange={value => handleValueChange(Number(value) as Points)}>
-        <SelectTrigger variant="outline" size="md" className="w-24 rounded-xl">
-          <SelectInput className="text-black" placeholder="0" />
-          <SelectIcon className="mr-3 text-black" as={ChevronDown} />
-        </SelectTrigger>
-        <SelectPortal>
-          <SelectBackdrop />
-          <SelectContent style={styles.selectContent}>
-            <SelectDragIndicatorWrapper>
-              <SelectDragIndicator />
-            </SelectDragIndicatorWrapper>
-            {pointsOptions.map(p => (
-              <SelectItem key={p} label={String(p)} value={String(p)} />
-            ))}
-          </SelectContent>
-        </SelectPortal>
-      </Select>
+      <ScorePicker value={participant.points as Points} onChange={handleValueChange} />
     </HStack>
   )
 }

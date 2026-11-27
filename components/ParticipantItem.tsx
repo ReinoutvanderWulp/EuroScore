@@ -45,14 +45,14 @@ const ParticipantItem: FunctionComponent<ListItemProps> = ({participant}) => {
             <Image source={{uri: participant.flag_url}} style={styles.flag} resizeMode="contain" />
           )}
           <VStack className="flex-1">
-            <Heading size="sm" className="text-black" numberOfLines={1}>
+            <Heading size="sm" className="text-typography-900" numberOfLines={1}>
               {participant.country}
             </Heading>
-            <Text size="sm" className="text-black" numberOfLines={1}>
+            <Text size="sm" className="text-typography-900" numberOfLines={1}>
               {participant.artist} – {participant.song}
             </Text>
           </VStack>
-          <Icon as={ChevronRight} size="md" className="text-black" />
+          <Icon as={ChevronRight} size="md" className="text-typography-900" />
         </HStack>
       </Card>
     </Pressable>

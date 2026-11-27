@@ -16,7 +16,7 @@ const EMBED_HTML = `<!doctype html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<style>html, body { margin: 0; padding: 0; background: #ffffff; }</style>
+<style>html, body { margin: 0; padding: 0; background: transparent; }</style>
 </head>
 <body>
 <blockquote class="instagram-media"
@@ -81,6 +81,7 @@ const InstagramFeed: FunctionComponent = () => {
       <StyledTitle>Explore the Eurovision Instagram feed!</StyledTitle>
       <View style={{height}}>
         <WebView
+          style={{backgroundColor: 'transparent'}}
           originWhitelist={['*']}
           source={{html: EMBED_HTML, baseUrl: BASE_URL}}
           injectedJavaScript={MEASURE_SCRIPT}

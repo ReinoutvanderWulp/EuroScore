@@ -15,6 +15,7 @@ import {Input, InputField, InputIcon, InputSlot} from '@/components/ui/input'
 import {Text} from '@/components/ui/text'
 import {VStack} from '@/components/ui/vstack'
 import {useAuth} from '@/context/AuthContext'
+import {useThemeColors} from '@/hooks/useThemeColors'
 
 const styles = StyleSheet.create({
   safeArea: {
@@ -62,6 +63,7 @@ const Login: FunctionComponent = () => {
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [info, setInfo] = useState<string | null>(null)
+  const colors = useThemeColors()
 
   const canSubmit = email.trim().length > 0 && password.length > 0 && !busy
 
@@ -103,15 +105,15 @@ const Login: FunctionComponent = () => {
   }
 
   return (
-    <SafeAreaView style={styles.safeArea}>
+    <SafeAreaView style={[styles.safeArea, {backgroundColor: colors.background}]}>
       <KeyboardAvoidingView style={styles.flex} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
         <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
           <VStack space="xl">
             <VStack space="xs">
-              <Heading size="3xl" className="text-black">
+              <Heading size="3xl" className="text-typography-900">
                 EuroScore
               </Heading>
-              <Text size="md" className="text-black">
+              <Text size="md" className="text-typography-900">
                 {isSignUp ? 'Create your account to start scoring.' : 'Welcome back! Sign in to continue.'}
               </Text>
             </VStack>
@@ -119,11 +121,11 @@ const Login: FunctionComponent = () => {
             <VStack space="lg">
               <FormControl>
                 <FormControlLabel>
-                  <FormControlLabelText className="text-black">Email</FormControlLabelText>
+                  <FormControlLabelText className="text-typography-900">Email</FormControlLabelText>
                 </FormControlLabel>
                 <Input size="lg" className="rounded-xl">
                   <InputField
-                    className="text-black"
+                    className="text-typography-900"
                     placeholder="you@example.com"
                     autoCapitalize="none"
                     autoComplete="email"
@@ -136,11 +138,11 @@ const Login: FunctionComponent = () => {
 
               <FormControl isInvalid={!!error}>
                 <FormControlLabel>
-                  <FormControlLabelText className="text-black">Password</FormControlLabelText>
+                  <FormControlLabelText className="text-typography-900">Password</FormControlLabelText>
                 </FormControlLabel>
                 <Input size="lg" className="rounded-xl">
                   <InputField
-                    className="text-black"
+                    className="text-typography-900"
                     type={showPassword ? 'text' : 'password'}
                     placeholder="Password"
                     autoCapitalize="none"
@@ -150,7 +152,7 @@ const Login: FunctionComponent = () => {
                     onSubmitEditing={submit}
                   />
                   <InputSlot className="pr-4" onPress={() => setShowPassword(prev => !prev)}>
-                    <InputIcon as={showPassword ? EyeOff : Eye} className="text-black" />
+                    <InputIcon as={showPassword ? EyeOff : Eye} className="text-typography-900" />
                   </InputSlot>
                 </Input>
                 <FormControlError>
@@ -159,7 +161,7 @@ const Login: FunctionComponent = () => {
               </FormControl>
 
               {info && (
-                <Text size="sm" className="text-black">
+                <Text size="sm" className="text-typography-900">
                   {info}
                 </Text>
               )}
@@ -172,7 +174,7 @@ const Login: FunctionComponent = () => {
 
               {!isSignUp && (
                 <Button variant="link" action="secondary" isDisabled={busy} onPress={forgotPassword}>
-                  <ButtonText className="text-black underline">Forgot your password?</ButtonText>
+                  <ButtonText className="text-typography-900 underline">Forgot your password?</ButtonText>
                 </Button>
               )}
 
@@ -184,7 +186,7 @@ const Login: FunctionComponent = () => {
                   setError(null)
                   setInfo(null)
                 }}>
-                <ButtonText className="text-black underline">
+                <ButtonText className="text-typography-900 underline">
                   {isSignUp ? 'Already have an account? Sign in' : 'No account yet? Sign up'}
                 </ButtonText>
               </Button>

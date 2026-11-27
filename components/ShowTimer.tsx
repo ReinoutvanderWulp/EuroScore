@@ -21,10 +21,10 @@ interface TimeTileProps {
 
 const TimeTile: FunctionComponent<TimeTileProps> = ({value, label}) => (
   <VStack className="flex-1 items-center rounded-2xl border border-outline-200 bg-background-50 py-3">
-    <Heading size="2xl" className="text-black">
+    <Heading size="2xl" className="text-typography-900">
       {String(value).padStart(2, '0')}
     </Heading>
-    <Text size="xs" className="uppercase text-black">
+    <Text size="xs" className="uppercase text-typography-900">
       {label}
     </Text>
   </VStack>
@@ -53,7 +53,7 @@ const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDur
 
     return (
       <VStack space="md" className="mb-3 mt-4">
-        <Heading size="md" className="text-black">
+        <Heading size="md" className="text-typography-900">
           {title}
         </Heading>
         <HStack space="sm">
@@ -72,7 +72,7 @@ const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDur
     return (
       <Card variant="elevated" className="mb-3 mt-4 rounded-2xl">
         <VStack space="sm">
-          <Heading size="md" className="text-black">
+          <Heading size="md" className="text-typography-900">
             {title}
           </Heading>
           <HStack space="sm" className="items-center">
@@ -89,7 +89,7 @@ const ShowTimer: FunctionComponent<ShowTimerProps> = ({title, eventDate, showDur
   return (
     <Card variant="elevated" className="mb-3 mt-4 rounded-2xl">
       <VStack space="sm">
-        <Heading size="md" className="text-black">
+        <Heading size="md" className="text-typography-900">
           {title}
         </Heading>
         <StyledText>You can rewatch the event on Eurovision's Youtube!</StyledText>

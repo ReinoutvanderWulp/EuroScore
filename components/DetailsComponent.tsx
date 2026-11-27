@@ -33,10 +33,10 @@ interface InfoRowProps {
 
 const InfoRow: FunctionComponent<InfoRowProps> = ({label, value}) => (
   <VStack space="xs">
-    <Text size="sm" className="text-black">
+    <Text size="sm" className="text-typography-900">
       {label}
     </Text>
-    <Heading size="md" className="text-black">
+    <Heading size="md" className="text-typography-900">
       {value}
     </Heading>
   </VStack>
@@ -66,10 +66,10 @@ const DetailsComponent: FunctionComponent = () => {
             <Image source={{uri: participant.flag_url}} style={styles.flag} resizeMode="contain" />
           )}
           <VStack className="flex-1">
-            <Heading size="2xl" className="text-black" numberOfLines={2}>
+            <Heading size="2xl" className="text-typography-900" numberOfLines={2}>
               {participant.country}
             </Heading>
-            <Text size="md" className="text-black">
+            <Text size="md" className="text-typography-900">
               {participant.artist}
             </Text>
           </VStack>
@@ -77,15 +77,15 @@ const DetailsComponent: FunctionComponent = () => {
 
         <HStack space="sm" className="flex-wrap">
           <Badge action="muted" variant="outline" size="lg">
-            <BadgeText className="text-black">🎸 {participant.genre}</BadgeText>
+            <BadgeText className="text-typography-900">🎸 {participant.genre}</BadgeText>
           </Badge>
           <Badge action="muted" variant="outline" size="lg">
-            <BadgeText className="text-black">
+            <BadgeText className="text-typography-900">
               🏆 {participant.country_wins} {participant.country_wins === 1 ? 'victory' : 'victories'}
             </BadgeText>
           </Badge>
           <Badge action="muted" variant="outline" size="lg">
-            <BadgeText className="text-black">
+            <BadgeText className="text-typography-900">
               {participant.returning_artist ? '🔄 Returning artist' : '🆕 New artist'}
             </BadgeText>
           </Badge>
@@ -100,7 +100,7 @@ const DetailsComponent: FunctionComponent = () => {
         </Card>
 
         <VStack space="sm">
-          <Heading size="sm" className="text-black">
+          <Heading size="sm" className="text-typography-900">
             🎧 Listen to the song via Spotify
           </Heading>
           <LinkButton url={participant.spotify_url} songName={participant.song} />

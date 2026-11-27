@@ -8,7 +8,7 @@ interface StyledTitleProps {
 
 const StyledTitle: FunctionComponent<StyledTitleProps> = ({children, style}) => {
   return (
-    <Heading size="lg" className="mb-3 mt-4 text-black" style={style}>
+    <Heading size="lg" className="mb-3 mt-4 text-typography-900" style={style}>
       {children}
     </Heading>
   )

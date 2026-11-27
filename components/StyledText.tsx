@@ -9,7 +9,7 @@ interface StyledTextProps {
 
 const StyledText: FunctionComponent<StyledTextProps> = ({children, style}) => {
   return (
-    <Text size="md" className="text-black" style={style}>
+    <Text size="md" className="text-typography-900" style={style}>
       {children}
     </Text>
   )

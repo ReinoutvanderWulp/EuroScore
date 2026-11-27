@@ -3,12 +3,15 @@ import {Tabs} from 'expo-router'
 import {ClipboardList, House, UserRound} from 'lucide-react-native'
 import AppHeader from '@/components/AppHeader'
 import GradientStyle from '@/components/GradientStyle'
+import {useThemeColors} from '@/hooks/useThemeColors'
 
 const TabsLayout: FunctionComponent = () => {
+  const colors = useThemeColors()
+
   return (
     <Tabs
       screenOptions={{
-        sceneStyle: {backgroundColor: '#ffffff'},
+        sceneStyle: {backgroundColor: colors.background},
         header: ({options, route}) => <AppHeader title={options.title ?? route.name} />,
         tabBarActiveTintColor: '#ffffff',
         tabBarInactiveTintColor: 'rgba(255, 255, 255, 0.6)',

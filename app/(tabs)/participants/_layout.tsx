@@ -1,8 +1,11 @@
 import {FunctionComponent} from 'react'
 import {Stack} from 'expo-router'
 import AppHeader from '@/components/AppHeader'
+import {useThemeColors} from '@/hooks/useThemeColors'
 
 const ParticipantsLayout: FunctionComponent = () => {
+  const colors = useThemeColors()
+
   return (
     <Stack
       screenOptions={{
@@ -12,7 +15,7 @@ const ParticipantsLayout: FunctionComponent = () => {
             onBack={back ? () => navigation.goBack() : undefined}
           />
         ),
-        contentStyle: {backgroundColor: '#ffffff'},
+        contentStyle: {backgroundColor: colors.background},
       }}>
       <Stack.Screen name="index" options={{title: 'Participants'}} />
       <Stack.Screen name="[country]" options={{title: 'Details'}} />

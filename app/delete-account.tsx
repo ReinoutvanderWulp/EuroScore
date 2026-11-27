@@ -1,15 +1,7 @@
 import {FunctionComponent, useState} from 'react'
-import {KeyboardAvoidingView, Platform, ScrollView, StyleSheet} from 'react-native'
+import {Alert as NativeAlert, KeyboardAvoidingView, Platform, ScrollView, StyleSheet} from 'react-native'
 import {TriangleAlert} from 'lucide-react-native'
 import {Alert, AlertIcon, AlertText} from '@/components/ui/alert'
-import {
-  AlertDialog,
-  AlertDialogBackdrop,
-  AlertDialogBody,
-  AlertDialogContent,
-  AlertDialogFooter,
-  AlertDialogHeader,
-} from '@/components/ui/alert-dialog'
 import {Button, ButtonSpinner, ButtonText} from '@/components/ui/button'
 import {
   FormControl,
@@ -20,14 +12,13 @@ import {
 } from '@/components/ui/form-control'
 import {Heading} from '@/components/ui/heading'
 import {Input, InputField} from '@/components/ui/input'
-import {Text} from '@/components/ui/text'
 import {VStack} from '@/components/ui/vstack'
 import {useAuth} from '@/context/AuthContext'
+import {useThemeColors} from '@/hooks/useThemeColors'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ffffff',
   },
   content: {
     padding: 24,
@@ -53,15 +44,14 @@ const errorMessage = (error: unknown): string => {
 
 const DeleteAccount: FunctionComponent = () => {
   const {user, deleteAccount} = useAuth()
+  const colors = useThemeColors()
   const [password, setPassword] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [confirmOpen, setConfirmOpen] = useState(false)
 
   const canSubmit = password.length > 0 && !busy
 
   const runDelete = async () => {
-    setConfirmOpen(false)
     setBusy(true)
     setError(null)
     try {
@@ -73,28 +63,43 @@ const DeleteAccount: FunctionComponent = () => {
     }
   }
 
+  const confirmDelete = () => {
+    NativeAlert.alert(
+      'Delete account?',
+      'This permanently deletes your account and all your scores. This cannot be undone.',
+      [
+        {text: 'Cancel', style: 'cancel'},
+        {text: 'Delete', style: 'destructive', onPress: () => void runDelete()},
+      ],
+    )
+  }
+
   return (
-    <KeyboardAvoidingView style={styles.container} behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
+    <KeyboardAvoidingView
+      style={[styles.container, {backgroundColor: colors.background}]}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
       <ScrollView contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
         <VStack space="lg">
-          <Heading size="xl" className="text-black">
+          <Heading size="xl" className="text-typography-900">
             Delete your account
           </Heading>
 
           <Alert action="error" variant="outline" className="items-start gap-3">
             <AlertIcon as={TriangleAlert} size="lg" />
-            <AlertText className="flex-1 text-black">
+            <AlertText className="flex-1 text-typography-900">
               This permanently deletes the account {user?.email} and all your scores. This cannot be undone.
             </AlertText>
           </Alert>
 
           <FormControl isInvalid={!!error}>
             <FormControlLabel>
-              <FormControlLabelText className="text-black">Enter your password to confirm</FormControlLabelText>
+              <FormControlLabelText className="text-typography-900">
+                Enter your password to confirm
+              </FormControlLabelText>
             </FormControlLabel>
             <Input size="lg" className="rounded-xl">
               <InputField
-                className="text-black"
+                className="text-typography-900"
                 type="password"
                 placeholder="Password"
                 autoCapitalize="none"
@@ -108,40 +113,11 @@ const DeleteAccount: FunctionComponent = () => {
             </FormControlError>
           </FormControl>
 
-          <Button
-            action="negative"
-            size="lg"
-            className="rounded-full"
-            isDisabled={!canSubmit}
-            onPress={() => setConfirmOpen(true)}>
+          <Button action="negative" size="lg" className="rounded-full" isDisabled={!canSubmit} onPress={confirmDelete}>
             {busy ? <ButtonSpinner color="#ffffff" /> : <ButtonText>Delete my account permanently</ButtonText>}
           </Button>
         </VStack>
       </ScrollView>
-
-      <AlertDialog isOpen={confirmOpen} onClose={() => setConfirmOpen(false)} size="md">
-        <AlertDialogBackdrop />
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <Heading size="md" className="text-black">
-              Delete account?
-            </Heading>
-          </AlertDialogHeader>
-          <AlertDialogBody className="mb-4 mt-3">
-            <Text size="sm" className="text-black">
-              This permanently deletes your account and all your scores. This cannot be undone.
-            </Text>
-          </AlertDialogBody>
-          <AlertDialogFooter className="gap-3">
-            <Button variant="outline" action="secondary" size="sm" onPress={() => setConfirmOpen(false)}>
-              <ButtonText className="text-black">Cancel</ButtonText>
-            </Button>
-            <Button action="negative" size="sm" onPress={() => void runDelete()}>
-              <ButtonText>Delete</ButtonText>
-            </Button>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </KeyboardAvoidingView>
   )
 }

@@ -1,13 +1,16 @@
 import {FunctionComponent} from 'react'
 import {StyleSheet, View} from 'react-native'
 import {Stack} from 'expo-router'
+import {DarkTheme, DefaultTheme, ThemeProvider as NavigationThemeProvider} from '@react-navigation/native'
 import {QueryClient, QueryClientProvider} from '@tanstack/react-query'
 import * as Notifications from 'expo-notifications'
+import AppHeader from '@/components/AppHeader'
 import EurovisionNotifications from '@/components/EurovisionNotifications'
 import {GluestackUIProvider} from '@/components/ui/gluestack-ui-provider'
 import {AuthProvider, useAuth} from '@/context/AuthContext'
+import {ThemePreferenceProvider, useThemePreference} from '@/context/ThemeContext'
+import {useThemeColors} from '@/hooks/useThemeColors'
 import '@/global.css'
-import AppHeader from '@/components/AppHeader'
 
 const queryClient = new QueryClient()
 
@@ -23,23 +26,23 @@ Notifications.setNotificationHandler({
 })
 
 const styles = StyleSheet.create({
-  rootStyle: {
+  root: {
     flex: 1,
-    backgroundColor: '#ffffff',
   },
 })
 
 const RootNavigator: FunctionComponent = () => {
   const {user, loading} = useAuth()
+  const colors = useThemeColors()
 
   // Wacht tot Firebase de opgeslagen sessie heeft gelezen, anders flitst het loginscherm even
   if (loading) return null
 
   return (
-    <Stack screenOptions={{headerShown: false, contentStyle: {backgroundColor: '#ffffff'}}}>
+    <Stack screenOptions={{headerShown: false, contentStyle: {backgroundColor: colors.background}}}>
       <Stack.Protected guard={!!user}>
         <Stack.Screen name="(tabs)" />
-                <Stack.Screen
+        <Stack.Screen
           name="delete-account"
           options={{
             headerShown: true,
@@ -62,18 +65,41 @@ const RootNavigator: FunctionComponent = () => {
   )
 }
 
-const RootLayout: FunctionComponent = () => {
+const ThemedNavigation: FunctionComponent = () => {
+  const colors = useThemeColors()
+
   return (
-    <GluestackUIProvider mode="light">
+    <NavigationThemeProvider value={colors.isDark ? DarkTheme : DefaultTheme}>
+      <View style={[styles.root, {backgroundColor: colors.background}]}>
+        <EurovisionNotifications />
+        <RootNavigator />
+      </View>
+    </NavigationThemeProvider>
+  )
+}
+
+const AppShell: FunctionComponent = () => {
+  const {preference, loaded} = useThemePreference()
+
+  // Wacht kort tot de opgeslagen voorkeur gelezen is, zodat het scherm niet in het verkeerde thema opent
+  if (!loaded) return null
+
+  return (
+    <GluestackUIProvider mode={preference}>
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
-          <View style={styles.rootStyle}>
-            <EurovisionNotifications />
-            <RootNavigator />
-          </View>
+          <ThemedNavigation />
         </AuthProvider>
       </QueryClientProvider>
     </GluestackUIProvider>
+  )
+}
+
+const RootLayout: FunctionComponent = () => {
+  return (
+    <ThemePreferenceProvider>
+      <AppShell />
+    </ThemePreferenceProvider>
   )
 }
 
